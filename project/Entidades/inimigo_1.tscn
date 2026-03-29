@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://ch7bl6tfk5egy"]
+
+[ext_resource type="Script" uid="uid://c8i6j6wmrfea" path="res://Scripts/inimigo_1.gd" id="1_peoyx"]
+[ext_resource type="Texture2D" uid="uid://dy4kenaashig2" path="res://sprites/inimigo1/Walking_(64 x 32).png" id="2_64pq0"]
+[ext_resource type="Texture2D" uid="uid://dftn0fe25lhnm" path="res://sprites/inimigo1/Blink_(Replace last frame on Walking)_(64 x 32).png" id="2_vnthj"]
+[ext_resource type="Texture2D" uid="uid://4mqw8i28uif1" path="res://sprites/inimigo1/Hurt_(64 x 32).png" id="3_64pq0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtp01"]
+atlas = ExtResource("2_64pq0")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r00ak"]
+atlas = ExtResource("2_64pq0")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0745g"]
+atlas = ExtResource("2_64pq0")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt6o5"]
+atlas = ExtResource("2_64pq0")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l408g"]
+atlas = ExtResource("2_64pq0")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bua58"]
+atlas = ExtResource("2_64pq0")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_miy63"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtp01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r00ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0745g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt6o5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l408g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bua58")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vnthj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_64pq0")
+}],
+"loop": false,
+"name": &"morto",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grb8i"]
+radius = 14.0
+height = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_peoyx"]
+size = Vector2(23, 29)
+
+[node name="Inimigo1" type="CharacterBody2D" unique_id=124043026]
+collision_layer = 4
+script = ExtResource("1_peoyx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1904097842]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_miy63")
+animation = &"morto"
+frame = 1
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=222843763]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_grb8i")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1150569193]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1022101202]
+position = Vector2(1.5, -1)
+shape = SubResource("RectangleShape2D_peoyx")
+debug_color = Color(0.904304, 0, 0.06884131, 0.41960785)
