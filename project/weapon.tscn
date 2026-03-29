@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bt3fienb5akuq"]
+
+[ext_resource type="Texture2D" uid="uid://bcp0y5onwls1e" path="res://gun/normal/right.png" id="1_o2wld"]
+[ext_resource type="Texture2D" uid="uid://cttxhobxvnk14" path="res://gun/fired/fired-right.png" id="2_8xwfw"]
+
+[node name="Weapon" type="Node2D" unique_id=1561290046]
+
+[node name="gun" type="Sprite2D" parent="." unique_id=923295164]
+texture = ExtResource("1_o2wld")
+
+[node name="fire" type="Sprite2D" parent="." unique_id=101607602]
+visible = false
+texture = ExtResource("2_8xwfw")
