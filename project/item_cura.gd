@@ -3,7 +3,7 @@ extends Area2D
 @export var cura: int = 20
 
 func _on_item_cura_body_entered(body):
-	if body.name == "Player":
+	if body.name == "player":
 		body.receber_cura(cura)
 		queue_free()
 
