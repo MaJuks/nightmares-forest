@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cg0db6q2dpgnf"
-path="res://.godot/imported/left-down.png-5d72aa58d47c5f5ff5847f676b8a55bf.ctex"
+path="res://.godot/imported/left-down.png-78de3a4007b2f5f41cd670fd48ac52a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gun/normal/left-down.png"
-dest_files=["res://.godot/imported/left-down.png-5d72aa58d47c5f5ff5847f676b8a55bf.ctex"]
+source_file="res://Sprites/gun/normal/left-down.png"
+dest_files=["res://.godot/imported/left-down.png-78de3a4007b2f5f41cd670fd48ac52a7.ctex"]
 
 [params]
 

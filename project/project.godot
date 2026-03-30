@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Novo Projeto de Jogo"
+run/main_scene="uid://ch7bl6tfk5egy"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="Novo Projeto de Jogo"
 
 [physics]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb13oqn5jcslu"
-path="res://.godot/imported/Spear_Jab_(64 x 32).png-1c7d4747da9d1a21ce7ac9c0d94da3ba.ctex"
+path="res://.godot/imported/Spear_Jab_(64 x 32).png-637f7bcb3055a8ab6efbf21845e803ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/inimigo1/Spear_Jab_(64 x 32).png"
-dest_files=["res://.godot/imported/Spear_Jab_(64 x 32).png-1c7d4747da9d1a21ce7ac9c0d94da3ba.ctex"]
+source_file="res://Sprites/inimigo1/Spear_Jab_(64 x 32).png"
+dest_files=["res://.godot/imported/Spear_Jab_(64 x 32).png-637f7bcb3055a8ab6efbf21845e803ec.ctex"]
 
 [params]
 

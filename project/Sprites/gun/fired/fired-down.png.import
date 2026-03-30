@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bp85kpf3yiif6"
-path="res://.godot/imported/fired-down.png-f9f535bafbc6422666bd5f46b1ce4638.ctex"
+path="res://.godot/imported/fired-down.png-3adaf4dece9cbed3c083ca5ceac8b500.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gun/fired/fired-down.png"
-dest_files=["res://.godot/imported/fired-down.png-f9f535bafbc6422666bd5f46b1ce4638.ctex"]
+source_file="res://Sprites/gun/fired/fired-down.png"
+dest_files=["res://.godot/imported/fired-down.png-3adaf4dece9cbed3c083ca5ceac8b500.ctex"]
 
 [params]
 

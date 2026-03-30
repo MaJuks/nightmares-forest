@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://4gbljr42pab1"]
+
+[ext_resource type="Script" uid="uid://cqx5eojd0feh4" path="res://item_cura.gd" id="1_ikuld"]
+[ext_resource type="Texture2D" uid="uid://bt1k68en3qm3g" path="res://Sprites/heal/potion-bottle-still.png" id="2_ejcch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ledv"]
+size = Vector2(20, 23)
+
+[node name="ItemCura" type="Area2D" unique_id=446449986]
+script = ExtResource("1_ikuld")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1811691570]
+position = Vector2(10, -1)
+texture = ExtResource("2_ejcch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=167547523]
+position = Vector2(10, 2)
+shape = SubResource("RectangleShape2D_0ledv")
+debug_color = Color(0.88850343, 0.19065458, 0.6639725, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

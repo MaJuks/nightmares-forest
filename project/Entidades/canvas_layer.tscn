@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bonjvxlhsl7dr"]
+
+[node name="BarraVida" type="CanvasLayer" unique_id=213035968]
+
+[node name="BarraVida" type="ProgressBar" parent="." unique_id=1759081576]
+anchors_preset = -1
+anchor_right = 0.31
+anchor_bottom = 0.042000003
+offset_left = -233.0
+offset_top = -30.0
+offset_right = -217.12
+offset_bottom = -30.216002
+value = 100.0

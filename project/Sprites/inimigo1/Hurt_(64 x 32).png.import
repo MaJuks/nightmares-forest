@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4mqw8i28uif1"
-path="res://.godot/imported/Hurt_(64 x 32).png-9e30ae1b83636b2d4d7c305f612c7d4a.ctex"
+path="res://.godot/imported/Hurt_(64 x 32).png-d2a3fdca04ea684bc24e69850d137c96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/inimigo1/Hurt_(64 x 32).png"
-dest_files=["res://.godot/imported/Hurt_(64 x 32).png-9e30ae1b83636b2d4d7c305f612c7d4a.ctex"]
+source_file="res://Sprites/inimigo1/Hurt_(64 x 32).png"
+dest_files=["res://.godot/imported/Hurt_(64 x 32).png-d2a3fdca04ea684bc24e69850d137c96.ctex"]
 
 [params]
 

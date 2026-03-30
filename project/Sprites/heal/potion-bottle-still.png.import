@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cttxhobxvnk14"
-path="res://.godot/imported/fired-right.png-90443666c1d853ab993f1912f7470a15.ctex"
+uid="uid://bt1k68en3qm3g"
+path="res://.godot/imported/potion-bottle-still.png-757ca02ffe8297697b510fa0dc8b4c1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/gun/fired/fired-right.png"
-dest_files=["res://.godot/imported/fired-right.png-90443666c1d853ab993f1912f7470a15.ctex"]
+source_file="res://Sprites/heal/potion-bottle-still.png"
+dest_files=["res://.godot/imported/potion-bottle-still.png-757ca02ffe8297697b510fa0dc8b4c1e.ctex"]
 
 [params]
 

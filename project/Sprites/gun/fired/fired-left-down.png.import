@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://du6nm28s0vof1"
-path="res://.godot/imported/fired-left-down.png-1a32cbb4fd4d90bd47b4a95f2fb7462b.ctex"
+path="res://.godot/imported/fired-left-down.png-efbe944b8c002f4d432750d0e0f83c18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gun/fired/fired-left-down.png"
-dest_files=["res://.godot/imported/fired-left-down.png-1a32cbb4fd4d90bd47b4a95f2fb7462b.ctex"]
+source_file="res://Sprites/gun/fired/fired-left-down.png"
+dest_files=["res://.godot/imported/fired-left-down.png-efbe944b8c002f4d432750d0e0f83c18.ctex"]
 
 [params]
 
