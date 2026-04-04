@@ -4,6 +4,7 @@ var input: Vector2 = Vector2.ZERO
 var velocidade: float = 130.0
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var weapon = $gun
+@export var stats : Stats
 
 func get_input():
 	input.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))

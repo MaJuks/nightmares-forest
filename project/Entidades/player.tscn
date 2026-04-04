@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cravh57x88ms2"]
 
 [ext_resource type="Script" uid="uid://b00psib1pffxv" path="res://Scripts/player.gd" id="1_kp72u"]
+[ext_resource type="Script" uid="uid://ba1slwrfnngdl" path="res://Scripts/stats.gd" id="2_cdlda"]
 [ext_resource type="Texture2D" uid="uid://dtaavg6y64erx" path="res://Sprites/player/standing/player_parado2.png" id="3_m6q7m"]
 [ext_resource type="Texture2D" uid="uid://cevy0rm05375g" path="res://Sprites/player/standing/player_parado.png" id="3_ocv5n"]
 [ext_resource type="PackedScene" uid="uid://duy8m23k31qsp" path="res://prefb/gun.tscn" id="3_vcobw"]
@@ -26,6 +27,10 @@
 [ext_resource type="Texture2D" uid="uid://bvq51387y2dg6" path="res://Sprites/player/walking_up/walking_up4.png" id="23_51w8n"]
 [ext_resource type="Texture2D" uid="uid://k2lqf2rxji25" path="res://Sprites/player/walking_up/walking_up5.png" id="24_6u5hh"]
 [ext_resource type="Texture2D" uid="uid://0hruy6x7o25p" path="res://Sprites/player/walking_up/walking_up6.png" id="25_rxbr3"]
+
+[sub_resource type="Resource" id="Resource_usxke"]
+script = ExtResource("2_cdlda")
+metadata/_custom_type_script = "uid://ba1slwrfnngdl"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6q7m"]
 size = Vector2(12, 16)
@@ -127,6 +132,7 @@ animations = [{
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1797955943]
 script = ExtResource("1_kp72u")
+stats = SubResource("Resource_usxke")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1210620567]
 position = Vector2(0, -1)
@@ -143,3 +149,7 @@ sprite_frames = SubResource("SpriteFrames_q7xc8")
 animation = &"standing"
 autoplay = "standing"
 frame_progress = 0.16110133
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=413357741]
+limit_left = 0
+limit_top = 0
