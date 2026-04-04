@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cravh57x88ms2"]
+
+[ext_resource type="Script" uid="uid://b00psib1pffxv" path="res://Scripts/player.gd" id="1_kp72u"]
+[ext_resource type="Texture2D" uid="uid://dtaavg6y64erx" path="res://Sprites/player/player_parado2.png" id="3_m6q7m"]
+[ext_resource type="Texture2D" uid="uid://cevy0rm05375g" path="res://Sprites/player/player_parado.png" id="3_ocv5n"]
+[ext_resource type="PackedScene" uid="uid://duy8m23k31qsp" path="res://prefb/gun.tscn" id="3_vcobw"]
+[ext_resource type="Texture2D" uid="uid://cxsh2ptj5t2w6" path="res://Sprites/player/player_parado3.png" id="4_2qwue"]
+[ext_resource type="Texture2D" uid="uid://cyg3vh0tx0ux5" path="res://Sprites/player/player_parado4.png" id="5_gpt77"]
+[ext_resource type="Texture2D" uid="uid://5yacgxul8cpx" path="res://Sprites/player/player_parado5.png" id="6_13jiw"]
+[ext_resource type="Texture2D" uid="uid://bniy7ovhmnfxh" path="res://Sprites/player/player_parado6.png" id="7_cc42t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6q7m"]
+size = Vector2(12, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7xc8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ocv5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m6q7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2qwue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gpt77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_13jiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cc42t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1797955943]
+script = ExtResource("1_kp72u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1210620567]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_m6q7m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1947898562]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_q7xc8")
+autoplay = "default"
+frame_progress = 0.7760493
+
+[node name="gun" parent="." unique_id=570585026 instance=ExtResource("3_vcobw")]
+position = Vector2(8, 7.9999995)
+scale = Vector2(0.2, 0.2)

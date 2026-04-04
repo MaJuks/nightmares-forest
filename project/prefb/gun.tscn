@@ -45,11 +45,13 @@ animations = [{
 script = ExtResource("1_evw55")
 
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=2007368461]
+position = Vector2(1, 1)
+scale = Vector2(1.97, 1.97)
 sprite_frames = SubResource("SpriteFrames_m6n0v")
-animation = &"shoot_left"
+animation = &"idle_right"
 
 [node name="MuzzleLeft" type="Marker2D" parent="." unique_id=1553726112]
-position = Vector2(-77, 1)
+position = Vector2(-113, 0)
 
 [node name="MuzzleRight" type="Marker2D" parent="." unique_id=1014841442]
-position = Vector2(89, 1)
+position = Vector2(89, 2)

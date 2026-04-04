@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
 var input: Vector2 = Vector2.ZERO
-var velocidade: float = 100.0
+var velocidade: float = 130.0
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var weapon = $gun
 
 func get_input():
 	input.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
@@ -10,7 +12,29 @@ func get_input():
 
 func character_movement():
 	velocity = input * velocidade
+	if input.x > 0:
+		anim.play("walking")
+		anim.flip_h = false
+		weapon.z_index = 2
 
+	elif input.x < 0:
+		anim.play("walking")
+		anim.flip_h = true
+		weapon.z_index = 2
+		
+	elif input.y < 0:
+		anim.play("walking_up")
+		anim.flip_h = true
+		weapon.z_index = 0
+		
+	elif input.y > 0:
+		anim.play("walking_down")
+		anim.flip_h = false
+		weapon.z_index = 2
+		
+	else:
+		anim.play("standing")
+		weapon.z_index = 2
 
 #chamado quando o node entra na cena primeira vez
 func _ready():

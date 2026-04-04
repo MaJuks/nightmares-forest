@@ -1,11 +1,145 @@
 [gd_scene format=3 uid="uid://cravh57x88ms2"]
 
-[ext_resource type="Texture2D" uid="uid://c75jrp57x4wfs" path="res://icon.svg" id="1_1be8l"]
 [ext_resource type="Script" uid="uid://b00psib1pffxv" path="res://Scripts/player.gd" id="1_kp72u"]
+[ext_resource type="Texture2D" uid="uid://dtaavg6y64erx" path="res://Sprites/player/standing/player_parado2.png" id="3_m6q7m"]
+[ext_resource type="Texture2D" uid="uid://cevy0rm05375g" path="res://Sprites/player/standing/player_parado.png" id="3_ocv5n"]
+[ext_resource type="PackedScene" uid="uid://duy8m23k31qsp" path="res://prefb/gun.tscn" id="3_vcobw"]
+[ext_resource type="Texture2D" uid="uid://cxsh2ptj5t2w6" path="res://Sprites/player/standing/player_parado3.png" id="4_2qwue"]
+[ext_resource type="Texture2D" uid="uid://cyg3vh0tx0ux5" path="res://Sprites/player/standing/player_parado4.png" id="5_gpt77"]
+[ext_resource type="Texture2D" uid="uid://5yacgxul8cpx" path="res://Sprites/player/standing/player_parado5.png" id="6_13jiw"]
+[ext_resource type="Texture2D" uid="uid://bniy7ovhmnfxh" path="res://Sprites/player/standing/player_parado6.png" id="7_cc42t"]
+[ext_resource type="Texture2D" uid="uid://ckd0jpew3o5p1" path="res://Sprites/player/player_andando/walkin1.png" id="8_vq1si"]
+[ext_resource type="Texture2D" uid="uid://bvlkym6l248fq" path="res://Sprites/player/player_andando/walking2.png" id="9_c07pf"]
+[ext_resource type="Texture2D" uid="uid://b7w4fwcbd2lun" path="res://Sprites/player/player_andando/walking3.png" id="10_3i2lo"]
+[ext_resource type="Texture2D" uid="uid://cbduodm0v1s4r" path="res://Sprites/player/player_andando/walking4.png" id="11_8q2kj"]
+[ext_resource type="Texture2D" uid="uid://vi3iicb0x3g" path="res://Sprites/player/player_andando/walking5.png" id="12_lqdca"]
+[ext_resource type="Texture2D" uid="uid://bou48fr7f26nn" path="res://Sprites/player/player_andando/walking6.png" id="13_dxmyr"]
+[ext_resource type="Texture2D" uid="uid://de7214sexl5e2" path="res://Sprites/player/walking_down/walking_down1.png" id="14_p76v4"]
+[ext_resource type="Texture2D" uid="uid://c44qx1igbo6lx" path="res://Sprites/player/walking_down/walking_down2.png" id="15_cdlda"]
+[ext_resource type="Texture2D" uid="uid://cd860e3dcl5o5" path="res://Sprites/player/walking_down/walking_down3.png" id="16_usxke"]
+[ext_resource type="Texture2D" uid="uid://d0w3g0j2d604l" path="res://Sprites/player/walking_down/walking_down4.png" id="17_ua761"]
+[ext_resource type="Texture2D" uid="uid://di8pppu57q2qw" path="res://Sprites/player/walking_down/walking_down5.png" id="18_38uu2"]
+[ext_resource type="Texture2D" uid="uid://wwkc4xcg8383" path="res://Sprites/player/walking_down/walking_down6.png" id="19_l2qoh"]
+[ext_resource type="Texture2D" uid="uid://d4mjkg233cq41" path="res://Sprites/player/walking_up/walking_up2.png" id="20_4lr4r"]
+[ext_resource type="Texture2D" uid="uid://c8loot8o6gpwk" path="res://Sprites/player/walking_up/walking_up1.png" id="21_wvjrf"]
+[ext_resource type="Texture2D" uid="uid://dka5e1i7flk3t" path="res://Sprites/player/walking_up/walking_up3.png" id="22_x7vqu"]
+[ext_resource type="Texture2D" uid="uid://bvq51387y2dg6" path="res://Sprites/player/walking_up/walking_up4.png" id="23_51w8n"]
+[ext_resource type="Texture2D" uid="uid://k2lqf2rxji25" path="res://Sprites/player/walking_up/walking_up5.png" id="24_6u5hh"]
+[ext_resource type="Texture2D" uid="uid://0hruy6x7o25p" path="res://Sprites/player/walking_up/walking_up6.png" id="25_rxbr3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6q7m"]
+size = Vector2(12, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7xc8"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("3_ocv5n")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_m6q7m")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_2qwue")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_gpt77")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_13jiw")
+}, {
+"duration": 2.1,
+"texture": ExtResource("7_cc42t")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_vq1si")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_c07pf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3i2lo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8q2kj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_lqdca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_dxmyr")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_p76v4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_cdlda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_usxke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ua761")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_38uu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_l2qoh")
+}],
+"loop": true,
+"name": &"walking_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_4lr4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_wvjrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_x7vqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_51w8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_6u5hh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_rxbr3")
+}],
+"loop": true,
+"name": &"walking_up",
+"speed": 5.0
+}]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1797955943]
 script = ExtResource("1_kp72u")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1328461704]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_1be8l")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1210620567]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_m6q7m")
+
+[node name="gun" parent="." unique_id=570585026 instance=ExtResource("3_vcobw")]
+position = Vector2(5.9999995, 5.9999995)
+scale = Vector2(0.14999999, 0.14999999)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1947898562]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_q7xc8")
+animation = &"standing"
+autoplay = "standing"
+frame_progress = 0.16110133

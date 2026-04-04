@@ -15,6 +15,11 @@ run/main_scene="uid://dk1pqqifiw4nd"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=900
+window/size/viewport_height=500
+
 [dotnet]
 
 project/assembly_name="Novo Projeto de Jogo"
@@ -65,4 +70,5 @@ shoot={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
