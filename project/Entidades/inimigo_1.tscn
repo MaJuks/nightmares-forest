@@ -85,14 +85,12 @@ frame = 1
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=222843763]
-visible = false
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_grb8i")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1150569193]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1022101202]
-visible = false
 position = Vector2(1.5, -1)
 shape = SubResource("RectangleShape2D_peoyx")
 debug_color = Color(0.904304, 0, 0.06884131, 0.41960785)
