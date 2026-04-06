@@ -39,6 +39,7 @@ func character_movement():
 
 #chamado quando o node entra na cena primeira vez
 func _ready():
+	add_to_group("player")
 	pass
 	
 

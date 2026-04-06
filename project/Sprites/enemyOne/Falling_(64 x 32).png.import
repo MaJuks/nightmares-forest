@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4mqw8i28uif1"
-path="res://.godot/imported/Hurt_(64 x 32).png-d2a3fdca04ea684bc24e69850d137c96.ctex"
+uid="uid://dmsuybw80jetw"
+path="res://.godot/imported/Falling_(64 x 32).png-23eb122b6db678369362defa8d842b1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/inimigo1/Hurt_(64 x 32).png"
-dest_files=["res://.godot/imported/Hurt_(64 x 32).png-d2a3fdca04ea684bc24e69850d137c96.ctex"]
+source_file="res://Sprites/enemyOne/Falling_(64 x 32).png"
+dest_files=["res://.godot/imported/Falling_(64 x 32).png-23eb122b6db678369362defa8d842b1b.ctex"]
 
 [params]
 

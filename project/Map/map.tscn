@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://btusfrlycsgyr" path="res://assets/ForestPack/Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree3.png" id="12_6yweb"]
 [ext_resource type="Texture2D" uid="uid://blxrkhp60kvke" path="res://assets/ForestPack/Tiny Swords (Free Pack)/Terrain/Resources/Wood/Trees/Tree4.png" id="13_43pbm"]
 [ext_resource type="PackedScene" uid="uid://cravh57x88ms2" path="res://Entidades/player.tscn" id="14_05gka"]
+[ext_resource type="PackedScene" uid="uid://ch7bl6tfk5egy" path="res://Entidades/enemyOne.tscn" id="14_ry46t"]
+[ext_resource type="Script" uid="uid://be78xwh4txg3b" path="res://Scripts/game_manager.gd" id="17_tgjig"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3t3g"]
 texture = ExtResource("1_vhrv6")
@@ -475,3 +477,22 @@ tile_set = SubResource("TileSet_eafwb")
 
 [node name="CharacterBody2D" parent="." unique_id=1797955943 instance=ExtResource("14_05gka")]
 position = Vector2(600, -36)
+
+[node name="GameManager" type="Node" parent="." unique_id=924930578 node_paths=PackedStringArray("spawn_points")]
+script = ExtResource("17_tgjig")
+enemy_scene = ExtResource("14_ry46t")
+spawn_points = NodePath("../SpawnPoints")
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=920060646]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints" unique_id=968083564]
+position = Vector2(248, -122)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints" unique_id=1673804136]
+position = Vector2(750, -556)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPoints" unique_id=1897774429]
+position = Vector2(50, 251)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnPoints" unique_id=987746850]
+position = Vector2(1186, 207)

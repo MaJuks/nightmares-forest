@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://krt2otg8uh58" path="res://Sprites/world/grass_temp.png" id="1_pbelu"]
 [ext_resource type="PackedScene" uid="uid://cravh57x88ms2" path="res://Entidades/player.tscn" id="2_kycxd"]
 [ext_resource type="PackedScene" uid="uid://4gbljr42pab1" path="res://Entidades/item_cura.tscn" id="3_4dvsh"]
-[ext_resource type="PackedScene" uid="uid://ch7bl6tfk5egy" path="res://Entidades/inimigo_1.tscn" id="4_ks8n1"]
+[ext_resource type="PackedScene" uid="uid://ch7bl6tfk5egy" path="res://Entidades/enemyOne.tscn" id="4_ks8n1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kycxd"]
 texture = ExtResource("1_pbelu")

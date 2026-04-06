@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c76134vj27ly0"
-path="res://.godot/imported/Idle_(64 x 32).png-7b3967e141ed3b66725b0099ea6370da.ctex"
+uid="uid://4mqw8i28uif1"
+path="res://.godot/imported/Hurt_(64 x 32).png-3b2bd599dc74211afb08b35c9915f7dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/inimigo1/Idle_(64 x 32).png"
-dest_files=["res://.godot/imported/Idle_(64 x 32).png-7b3967e141ed3b66725b0099ea6370da.ctex"]
+source_file="res://Sprites/enemyOne/Hurt_(64 x 32).png"
+dest_files=["res://.godot/imported/Hurt_(64 x 32).png-3b2bd599dc74211afb08b35c9915f7dc.ctex"]
 
 [params]
 

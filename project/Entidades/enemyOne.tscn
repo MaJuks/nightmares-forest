@@ -1,36 +1,47 @@
 [gd_scene format=3 uid="uid://ch7bl6tfk5egy"]
 
-[ext_resource type="Script" uid="uid://c8i6j6wmrfea" path="res://Scripts/inimigo_1.gd" id="1_peoyx"]
-[ext_resource type="Texture2D" uid="uid://dy4kenaashig2" path="res://Sprites/inimigo1/Walking_(64 x 32).png" id="2_64pq0"]
-[ext_resource type="Texture2D" uid="uid://dftn0fe25lhnm" path="res://Sprites/inimigo1/Blink_(Replace last frame on Walking)_(64 x 32).png" id="2_vnthj"]
-[ext_resource type="Texture2D" uid="uid://4mqw8i28uif1" path="res://Sprites/inimigo1/Hurt_(64 x 32).png" id="3_64pq0"]
+[ext_resource type="Script" uid="uid://c8i6j6wmrfea" path="res://Scripts/enemyOne.gd" id="1_l6v02"]
+[ext_resource type="Texture2D" uid="uid://dy4kenaashig2" path="res://Sprites/enemyOne/Walking_(64 x 32).png" id="2_v1f6n"]
+[ext_resource type="Texture2D" uid="uid://dftn0fe25lhnm" path="res://Sprites/enemyOne/Blink_(Replace last frame on Walking)_(64 x 32).png" id="3_2bqfq"]
+[ext_resource type="Texture2D" uid="uid://4mqw8i28uif1" path="res://Sprites/enemyOne/Hurt_(64 x 32).png" id="4_bcywp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qtp01"]
-atlas = ExtResource("2_64pq0")
+atlas = ExtResource("2_v1f6n")
 region = Rect2(0, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r00ak"]
-atlas = ExtResource("2_64pq0")
+atlas = ExtResource("2_v1f6n")
 region = Rect2(64, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0745g"]
-atlas = ExtResource("2_64pq0")
+atlas = ExtResource("2_v1f6n")
 region = Rect2(128, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tt6o5"]
-atlas = ExtResource("2_64pq0")
+atlas = ExtResource("2_v1f6n")
 region = Rect2(192, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l408g"]
-atlas = ExtResource("2_64pq0")
+atlas = ExtResource("2_v1f6n")
 region = Rect2(256, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bua58"]
-atlas = ExtResource("2_64pq0")
+atlas = ExtResource("2_v1f6n")
 region = Rect2(320, 0, 64, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_miy63"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2bqfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bcywp")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 2.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qtp01")
@@ -51,19 +62,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_bua58")
 }],
 "loop": true,
-"name": &"andando",
+"name": &"walking",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_vnthj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_64pq0")
-}],
-"loop": false,
-"name": &"morto",
-"speed": 2.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grb8i"]
@@ -73,16 +73,15 @@ height = 32.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_peoyx"]
 size = Vector2(23, 29)
 
-[node name="Inimigo1" type="CharacterBody2D" unique_id=124043026]
+[node name="enemyOne" type="CharacterBody2D" unique_id=124043026]
 collision_layer = 4
-script = ExtResource("1_peoyx")
+script = ExtResource("1_l6v02")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1904097842]
 position = Vector2(0, -1)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_miy63")
-animation = &"morto"
-frame = 1
-frame_progress = 1.0
+animation = &"walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=222843763]
 position = Vector2(0, -1)

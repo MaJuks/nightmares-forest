@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dftn0fe25lhnm"
-path="res://.godot/imported/Blink_(Replace last frame on Walking)_(64 x 32).png-704f227f4b6bfddb8e93d18d97b26b96.ctex"
+uid="uid://42e04gnoufcf"
+path="res://.godot/imported/Walking_&_Blink_(64 x 32).png-a7145f46527129b8a0a04b16d1c51fc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/inimigo1/Blink_(Replace last frame on Walking)_(64 x 32).png"
-dest_files=["res://.godot/imported/Blink_(Replace last frame on Walking)_(64 x 32).png-704f227f4b6bfddb8e93d18d97b26b96.ctex"]
+source_file="res://Sprites/enemyOne/Walking_&_Blink_(64 x 32).png"
+dest_files=["res://.godot/imported/Walking_&_Blink_(64 x 32).png-a7145f46527129b8a0a04b16d1c51fc8.ctex"]
 
 [params]
 
