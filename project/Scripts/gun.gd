@@ -57,17 +57,16 @@ func stop_shooting() -> void:
 		sprite.play("idle_left")
 	else:
 		sprite.play("idle_right")
-
 func shoot_bullet() -> void:
 	var bullet_instance = BULLET_SCENE.instantiate()
 
-	var muzzle_pos
+	var muzzle = muzzle_right
 	if facing_left:
-		muzzle_pos = muzzle_left.global_position
-	else:
-		muzzle_pos = muzzle_right.global_position
+		muzzle = muzzle_left
+
+	var muzzle_pos = muzzle.global_position
 
 	bullet_instance.global_position = muzzle_pos
 	bullet_instance.direction = (get_global_mouse_position() - muzzle_pos).normalized()
 
-	get_tree().current_scene.add_child(bullet_instance)
+	get_tree().root.add_child(bullet_instance)
