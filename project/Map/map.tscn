@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ch7bl6tfk5egy" path="res://Entidades/enemyOne.tscn" id="14_ry46t"]
 [ext_resource type="Script" uid="uid://be78xwh4txg3b" path="res://Scripts/game_manager.gd" id="17_tgjig"]
 [ext_resource type="Texture2D" uid="uid://ctpid6o551oxt" path="res://assets/ForestPack/Tiny Swords (Free Pack)/Terrain/Resources/Meat/Sheep/Sheep_Grass.png" id="18_1watw"]
+[ext_resource type="PackedScene" uid="uid://xtqldc1hupwy" path="res://HUD/HUD.tscn" id="25_6yweb"]
 
 [sub_resource type="Gradient" id="Gradient_43pbm"]
 offsets = PackedFloat32Array(0, 0.2421875, 0.5859375, 0.84375, 1)
@@ -756,10 +757,11 @@ tile_set = SubResource("TileSet_mxsvv")
 [node name="CharacterBody2D" parent="." unique_id=1797955943 instance=ExtResource("14_05gka")]
 position = Vector2(600, -36)
 
-[node name="GameManager" type="Node" parent="." unique_id=924930578 node_paths=PackedStringArray("spawn_points")]
+[node name="GameManager" type="Node" parent="." unique_id=924930578 node_paths=PackedStringArray("spawn_points", "enemies_label")]
 script = ExtResource("17_tgjig")
 enemy_scene = ExtResource("14_ry46t")
 spawn_points = NodePath("../SpawnPoints")
+enemies_label = NodePath("../Hud/Label2")
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=920060646]
 
@@ -774,3 +776,9 @@ position = Vector2(50, 251)
 
 [node name="Marker2D4" type="Marker2D" parent="SpawnPoints" unique_id=987746850]
 position = Vector2(1186, 207)
+
+[node name="Hud" parent="." unique_id=1814789336 instance=ExtResource("25_6yweb")]
+
+[node name="Label2" type="Label" parent="Hud" unique_id=1376043789]
+offset_right = 40.0
+offset_bottom = 23.0

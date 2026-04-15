@@ -2,6 +2,7 @@ extends Node
 
 @export var enemy_scene: PackedScene
 @export var spawn_points: Node2D
+@export var enemies_label: Label
 
 const ENEMIES_PER_HORDE: int = 10
 const SPAWN_INTERVAL: float = 2.0
@@ -15,6 +16,7 @@ func _ready() -> void:
 func start_horde() -> void:
 	enemies_spawned = 0
 	enemies_alive = 0
+	enemies_label.text = "Inimigos Restantes: " + str(ENEMIES_PER_HORDE)
 	spawn_next_enemy()
 
 func spawn_next_enemy() -> void:
@@ -34,16 +36,25 @@ func spawn_next_enemy() -> void:
 
 	enemies_spawned += 1
 	enemies_alive += 1
+	print("Spawnou inimigo: ", enemies_spawned)
+	update_label()
 
-	if enemies_spawned < ENEMIES_PER_HORDE:
+	if enemies_spawned <= ENEMIES_PER_HORDE - 1:
 		await get_tree().create_timer(SPAWN_INTERVAL).timeout
 		spawn_next_enemy()
 
 func _on_enemy_died() -> void:
 	enemies_alive -= 1
+	print("Inimigo morreu! Vivos: ", enemies_alive, " Spawnados: ", enemies_spawned)
+	update_label()
 
 	if enemies_alive <= 0 and enemies_spawned >= ENEMIES_PER_HORDE:
 		horde_complete()
 
+func update_label() -> void:
+	if enemies_label:
+		var restantes = ENEMIES_PER_HORDE - (enemies_spawned - enemies_alive)
+		enemies_label.text = "Inimigos Restantes: " + str(restantes)
+
 func horde_complete() -> void:
-	print("Horde complete! Change map here.")
+	print("Noite 1 finalizada!!!")
