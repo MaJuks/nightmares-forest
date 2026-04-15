@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ch7bl6tfk5egy"]
 
 [ext_resource type="Script" uid="uid://c8i6j6wmrfea" path="res://Scripts/enemyOne.gd" id="1_l6v02"]
+[ext_resource type="PackedScene" uid="uid://4gbljr42pab1" path="res://Entidades/item_cura.tscn" id="2_2bqfq"]
 [ext_resource type="Texture2D" uid="uid://dy4kenaashig2" path="res://Sprites/enemyOne/Walking_(64 x 32).png" id="2_v1f6n"]
 [ext_resource type="Texture2D" uid="uid://dftn0fe25lhnm" path="res://Sprites/enemyOne/Blink_(Replace last frame on Walking)_(64 x 32).png" id="3_2bqfq"]
 [ext_resource type="Texture2D" uid="uid://4mqw8i28uif1" path="res://Sprites/enemyOne/Hurt_(64 x 32).png" id="4_bcywp"]
@@ -73,10 +74,14 @@ height = 32.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_peoyx"]
 size = Vector2(23, 29)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1f6n"]
+bg_color = Color(0.05490196, 0.70980394, 0, 1)
+
 [node name="enemyOne" type="CharacterBody2D" unique_id=124043026]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_l6v02")
+drop_item = ExtResource("2_2bqfq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1904097842]
 position = Vector2(0, -1)
@@ -94,3 +99,15 @@ shape = SubResource("CapsuleShape2D_grb8i")
 position = Vector2(1.5, -1)
 shape = SubResource("RectangleShape2D_peoyx")
 debug_color = Color(0.904304, 0, 0.06884131, 0.41960785)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=224351581]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -44.0
+theme_override_colors/font_color = Color(0.22894648, 0.99788445, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.92941177, 0, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_v1f6n")
+max_value = 3.0
+value = 3.0
+show_percentage = false
