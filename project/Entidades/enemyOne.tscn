@@ -78,8 +78,8 @@ size = Vector2(23, 29)
 bg_color = Color(0.05490196, 0.70980394, 0, 1)
 
 [node name="enemyOne" type="CharacterBody2D" unique_id=124043026]
-collision_layer = 4
-collision_mask = 2
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_l6v02")
 drop_item = ExtResource("2_2bqfq")
 
@@ -94,6 +94,7 @@ position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_grb8i")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1150569193]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1022101202]
 position = Vector2(1.5, -1)

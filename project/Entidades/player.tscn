@@ -131,6 +131,7 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1797955943]
+collision_mask = 6
 script = ExtResource("1_kp72u")
 stats = SubResource("Resource_usxke")
 
