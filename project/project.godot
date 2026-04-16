@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Nightmare Forest"
+config/name="Novo Projeto de Jogo"
 run/main_scene="uid://tutjeyg8drqc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
