@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://bt1l510cit51y"]
+
+[ext_resource type="Script" uid="uid://bvryuokxexcrq" path="res://Scripts/enemyTwo.gd" id="1_lqque"]
+[ext_resource type="PackedScene" uid="uid://4gbljr42pab1" path="res://Entidades/item_cura.tscn" id="2_2a12k"]
+[ext_resource type="Texture2D" uid="uid://7md8yeutrhwn" path="res://Sprites/enemyTwo/TwilightFlyingEye/Death.png" id="3_lqque"]
+[ext_resource type="Texture2D" uid="uid://dhkenmtnjiu34" path="res://Sprites/enemyTwo/TwilightFlyingEye/Flight.png" id="4_0jbn0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a12k"]
+atlas = ExtResource("3_lqque")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ya11"]
+atlas = ExtResource("3_lqque")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aixcd"]
+atlas = ExtResource("3_lqque")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oehhx"]
+atlas = ExtResource("3_lqque")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_komf3"]
+atlas = ExtResource("4_0jbn0")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkcg8"]
+atlas = ExtResource("4_0jbn0")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1645e"]
+atlas = ExtResource("4_0jbn0")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m86j"]
+atlas = ExtResource("4_0jbn0")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lho5s"]
+atlas = ExtResource("4_0jbn0")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6glt"]
+atlas = ExtResource("4_0jbn0")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tma86"]
+atlas = ExtResource("4_0jbn0")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up3lk"]
+atlas = ExtResource("4_0jbn0")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_miy63"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a12k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ya11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aixcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oehhx")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_komf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkcg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1645e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m86j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lho5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6glt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tma86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up3lk")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp5cm"]
+size = Vector2(82, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_peoyx"]
+size = Vector2(81, 61.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1f6n"]
+bg_color = Color(0.05490196, 0.70980394, 0, 1)
+
+[node name="enemyTwo" type="CharacterBody2D" unique_id=124043026]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_lqque")
+drop_item = ExtResource("2_2a12k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1904097842]
+position = Vector2(-1, -1)
+scale = Vector2(1.96875, 2)
+sprite_frames = SubResource("SpriteFrames_miy63")
+animation = &"dead"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=222843763]
+position = Vector2(5, 3)
+shape = SubResource("RectangleShape2D_tp5cm")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1150569193]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1022101202]
+position = Vector2(5.5, 2.25)
+shape = SubResource("RectangleShape2D_peoyx")
+debug_color = Color(0.904304, 0, 0.06884131, 0.41960785)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=224351581]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -44.0
+theme_override_colors/font_color = Color(0.22894648, 0.99788445, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.92941177, 0, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_v1f6n")
+max_value = 3.0
+value = 3.0
+show_percentage = false

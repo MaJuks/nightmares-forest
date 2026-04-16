@@ -779,6 +779,6 @@ position = Vector2(1186, 207)
 
 [node name="Hud" parent="." unique_id=1814789336 instance=ExtResource("25_6yweb")]
 
-[node name="Label2" type="Label" parent="Hud" unique_id=1376043789]
+[node name="Label3" type="Label" parent="Hud" unique_id=1376043789]
 offset_right = 40.0
 offset_bottom = 23.0

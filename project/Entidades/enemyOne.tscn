@@ -41,7 +41,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"dead",
-"speed": 2.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -64,15 +64,15 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grb8i"]
-radius = 14.0
-height = 32.0
+radius = 26.0
+height = 56.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_peoyx"]
-size = Vector2(23, 29)
+size = Vector2(45, 56.625)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1f6n"]
 bg_color = Color(0.05490196, 0.70980394, 0, 1)
@@ -87,17 +87,19 @@ drop_item = ExtResource("2_2bqfq")
 position = Vector2(0, -1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_miy63")
-animation = &"walking"
+animation = &"dead"
+frame = 1
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=222843763]
-position = Vector2(0, -1)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_grb8i")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1150569193]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1022101202]
-position = Vector2(1.5, -1)
+position = Vector2(1.5, 3.3125)
 shape = SubResource("RectangleShape2D_peoyx")
 debug_color = Color(0.904304, 0, 0.06884131, 0.41960785)
 
