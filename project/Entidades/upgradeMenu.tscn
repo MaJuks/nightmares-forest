@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dhaprgmiea3qq"]
+
+[ext_resource type="Script" uid="uid://4qgkrngr7tum" path="res://Scripts/UpgradeMenu.gd" id="1_qs468"]
+
+[node name="UpgradeMenu" type="CanvasLayer" unique_id=906552968]
+script = ExtResource("1_qs468")
+
+[node name="damage_button" type="Button" parent="." unique_id=2078101937]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 835.0
+offset_top = 375.0
+offset_right = -331.0
+offset_bottom = -193.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Dano"
+autowrap_trim_flags = 0
+
+[node name="Label" type="Label" parent="." unique_id=1160933044]
+offset_left = 511.0
+offset_top = 234.0
+offset_right = 859.0
+offset_bottom = 331.0
+theme_override_font_sizes/font_size = 34
+text = "Subiu de nível!
+Escolha sua melhoria"
+horizontal_alignment = 1
+
+[node name="life_button" type="Button" parent="." unique_id=372434729]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 349.0
+offset_top = 366.0
+offset_right = -817.0
+offset_bottom = -202.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Saúde"
+autowrap_trim_flags = 0
+
+[node name="velocity_button" type="Button" parent="." unique_id=1769280152]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 588.0
+offset_top = 370.0
+offset_right = -578.0
+offset_bottom = -198.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Velocidade"
+autowrap_trim_flags = 0
+
+[connection signal="pressed" from="damage_button" to="." method="_on_damage_button_pressed"]
+[connection signal="pressed" from="life_button" to="." method="_on_health_button_pressed"]
+[connection signal="pressed" from="velocity_button" to="." method="_on_velocity_button_pressed"]

@@ -34,7 +34,7 @@ func spawn_next_enemy() -> void:
 
 	var enemy = enemy_scene.instantiate()
 	enemy.tree_exited.connect(_on_enemy_died)
-	get_parent().add_child(enemy)
+	get_parent().add_child.call_deferred(enemy)
 	enemy.global_position = random_point.global_position
 
 	enemies_spawned += 1

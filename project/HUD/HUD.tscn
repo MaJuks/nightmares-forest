@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://xtqldc1hupwy"]
 
+[ext_resource type="Script" uid="uid://pmc8isrk2m8c" path="res://HUD/hud.gd" id="1_f31rt"]
+
 [node name="Hud" type="CanvasLayer" unique_id=1814789336]
 offset = Vector2(600, 0)
 transform = Transform2D(1, 0, 0, 1, 600, 0)
+script = ExtResource("1_f31rt")
 
 [node name="Label2" type="Label" parent="." unique_id=1346610550]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1545645067]
+offset_left = -599.0
+offset_right = -260.0
+offset_bottom = 27.0

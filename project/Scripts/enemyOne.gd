@@ -5,7 +5,10 @@ enum enemyOneState {
 	DEAD
 }
 
+signal xp_droped(amount: int)
+
 @export var drop_item: PackedScene
+@export var xp_reward: int = 100
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $Hitbox
 @onready var health_bar: ProgressBar = $ProgressBar
@@ -14,6 +17,7 @@ const SPEED = 100.0
 
 var max_health: int = 3
 var health: int = max_health
+var damage: int = 10
 var status: enemyOneState
 var player: CharacterBody2D
 
@@ -22,7 +26,12 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	health_bar.max_value = max_health
 	health_bar.value = health
+	hitbox.body_entered.connect(_on_damage_area_body_entered)
 	go_to_walk_state()
+
+func _on_damage_area_body_entered(body: Node) -> void:
+	if body.is_in_group("player"):
+		body.take_damage(damage)
 
 func _physics_process(delta: float) -> void:
 	match status:
@@ -41,6 +50,10 @@ func go_to_dead_state() -> void:
 	status = enemyOneState.DEAD
 	animated_sprite_2d.play("dead")
 	hitbox.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	var player_node = get_tree().get_first_node_in_group("player")
+	if player_node:
+		player_node.stats.experience += xp_reward
 
 func walk_state(_delta: float) -> void:
 	if player == null:
