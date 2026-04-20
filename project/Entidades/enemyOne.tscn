@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ch7bl6tfk5egy"]
 
-[ext_resource type="Script" uid="uid://c8i6j6wmrfea" path="res://Scripts/enemyOne.gd" id="1_l6v02"]
+[ext_resource type="Script" uid="uid://c8i6j6wmrfea" path="res://Entidades/Scripts Entidades/enemyOne.gd" id="1_l6v02"]
 [ext_resource type="PackedScene" uid="uid://4gbljr42pab1" path="res://Entidades/item_cura.tscn" id="2_2bqfq"]
 [ext_resource type="Texture2D" uid="uid://dy4kenaashig2" path="res://Sprites/enemyOne/Walking_(64 x 32).png" id="2_v1f6n"]
 [ext_resource type="Texture2D" uid="uid://dftn0fe25lhnm" path="res://Sprites/enemyOne/Blink_(Replace last frame on Walking)_(64 x 32).png" id="3_2bqfq"]

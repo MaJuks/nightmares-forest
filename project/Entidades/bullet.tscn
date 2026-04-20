@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bbiga6k3lt5xi"]
+
+[ext_resource type="Script" uid="uid://bk0k5i8kfc8hh" path="res://Entidades/Scripts Entidades/bullet.gd" id="1_0tbmf"]
+[ext_resource type="Texture2D" uid="uid://836euyw7typn" path="res://Sprites/fx/player-shoot/player-shoot1.png" id="1_mpccs"]
+[ext_resource type="Texture2D" uid="uid://bl7a10dfalg2o" path="res://Sprites/fx/player-shoot/player-shoot2.png" id="2_0tbmf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fnwl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mpccs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0tbmf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_47c0t"]
+radius = 9.0
+height = 18.0
+
+[node name="bullet" type="Area2D" unique_id=876491677 groups=["bullets"]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_0tbmf")
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=1548944759]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_fnwl3")
+autoplay = "default"
+frame = 1
+frame_progress = 1.0
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1604813511]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_47c0t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

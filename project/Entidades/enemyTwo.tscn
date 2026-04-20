@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bt1l510cit51y"]
 
-[ext_resource type="Script" uid="uid://bvryuokxexcrq" path="res://Scripts/enemyTwo.gd" id="1_lqque"]
+[ext_resource type="Script" uid="uid://bvryuokxexcrq" path="res://Entidades/Scripts Entidades/enemyTwo.gd" id="1_lqque"]
 [ext_resource type="PackedScene" uid="uid://4gbljr42pab1" path="res://Entidades/item_cura.tscn" id="2_2a12k"]
 [ext_resource type="Texture2D" uid="uid://7md8yeutrhwn" path="res://Sprites/enemyTwo/TwilightFlyingEye/Death.png" id="3_lqque"]
 [ext_resource type="Texture2D" uid="uid://dhkenmtnjiu34" path="res://Sprites/enemyTwo/TwilightFlyingEye/Flight.png" id="4_0jbn0"]

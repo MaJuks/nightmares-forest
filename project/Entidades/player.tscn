@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cravh57x88ms2"]
 
-[ext_resource type="Script" uid="uid://b00psib1pffxv" path="res://Scripts/player.gd" id="1_kp72u"]
-[ext_resource type="Script" uid="uid://ba1slwrfnngdl" path="res://Scripts/stats.gd" id="2_cdlda"]
+[ext_resource type="Script" uid="uid://b00psib1pffxv" path="res://Entidades/Scripts Entidades/player.gd" id="1_kp72u"]
+[ext_resource type="Script" uid="uid://ba1slwrfnngdl" path="res://Entidades/Scripts Entidades/stats.gd" id="2_cdlda"]
 [ext_resource type="Texture2D" uid="uid://dtaavg6y64erx" path="res://Sprites/player/standing/player_parado2.png" id="3_m6q7m"]
 [ext_resource type="Texture2D" uid="uid://cevy0rm05375g" path="res://Sprites/player/standing/player_parado.png" id="3_ocv5n"]
-[ext_resource type="PackedScene" uid="uid://duy8m23k31qsp" path="res://prefb/gun.tscn" id="3_vcobw"]
+[ext_resource type="PackedScene" uid="uid://duy8m23k31qsp" path="res://Entidades/gun.tscn" id="3_vcobw"]
 [ext_resource type="Texture2D" uid="uid://cxsh2ptj5t2w6" path="res://Sprites/player/standing/player_parado3.png" id="4_2qwue"]
 [ext_resource type="Texture2D" uid="uid://cyg3vh0tx0ux5" path="res://Sprites/player/standing/player_parado4.png" id="5_gpt77"]
 [ext_resource type="Texture2D" uid="uid://5yacgxul8cpx" path="res://Sprites/player/standing/player_parado5.png" id="6_13jiw"]

@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://dtt2dsl7a1t46"]
-
-[ext_resource type="Script" uid="uid://4qgkrngr7tum" path="res://Scripts/UpgradeMenu.gd" id="1_u53bs"]
-
-[node name="UpgradeChoose" type="CanvasLayer" unique_id=436601228]
-script = ExtResource("1_u53bs")
