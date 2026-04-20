@@ -152,5 +152,7 @@ autoplay = "standing"
 frame_progress = 0.16110133
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=413357741]
-limit_left = 0
-limit_top = 0
+limit_left = -500
+limit_top = -500
+limit_right = 1000000
+limit_bottom = 100000

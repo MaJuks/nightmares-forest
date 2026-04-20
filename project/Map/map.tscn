@@ -710,7 +710,6 @@ sources/4 = SubResource("TileSetAtlasSource_1watw")
 sources/5 = SubResource("TileSetAtlasSource_tuo8d")
 
 [node name="Map" type="Node2D" unique_id=1191358320]
-position = Vector2(750, 656)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=97049478]
 color = Color(0.27937305, 0.2992859, 0.47400928, 1)
@@ -755,7 +754,7 @@ tile_map_data = PackedByteArray("AAANAAgAAwAAABgAAAAMAAUAAwAEAAgAAAAMAAYAAwAEAAk
 tile_set = SubResource("TileSet_mxsvv")
 
 [node name="CharacterBody2D" parent="." unique_id=1797955943 instance=ExtResource("14_05gka")]
-position = Vector2(600, -36)
+position = Vector2(651, 1)
 
 [node name="GameManager" type="Node" parent="." unique_id=924930578 node_paths=PackedStringArray("spawn_points", "enemies_label")]
 script = ExtResource("17_tgjig")
@@ -766,16 +765,16 @@ enemies_label = NodePath("../Hud/Label2")
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=920060646]
 
 [node name="Marker2D" type="Marker2D" parent="SpawnPoints" unique_id=968083564]
-position = Vector2(248, -122)
+position = Vector2(1199, -10)
 
 [node name="Marker2D2" type="Marker2D" parent="SpawnPoints" unique_id=1673804136]
-position = Vector2(750, -556)
+position = Vector2(743, -373)
 
 [node name="Marker2D3" type="Marker2D" parent="SpawnPoints" unique_id=1897774429]
-position = Vector2(50, 251)
+position = Vector2(44, 249)
 
 [node name="Marker2D4" type="Marker2D" parent="SpawnPoints" unique_id=987746850]
-position = Vector2(1186, 207)
+position = Vector2(1147, 318)
 
 [node name="Hud" parent="." unique_id=1814789336 instance=ExtResource("25_6yweb")]
 
