@@ -1,6 +1,6 @@
 extends Node
 
-@export var enemy_scene: PackedScene
+@export var enemy_scenes: Array[PackedScene] = []
 @export var spawn_points: Node2D
 @export var enemies_label: Label
 
@@ -27,12 +27,13 @@ func spawn_next_enemy() -> void:
 		return
 
 	var points = spawn_points.get_children()
-	if points.is_empty():
+	if points.is_empty() or enemy_scenes.is_empty():
 		return
 
 	var random_point = points[randi() % points.size()]
+	var random_scene = enemy_scenes[randi() % enemy_scenes.size()]
 
-	var enemy = enemy_scene.instantiate()
+	var enemy = random_scene.instantiate()
 	enemy.tree_exited.connect(_on_enemy_died)
 	get_parent().add_child.call_deferred(enemy)
 	enemy.global_position = random_point.global_position

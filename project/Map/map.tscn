@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://cravh57x88ms2" path="res://Entidades/player.tscn" id="14_05gka"]
 [ext_resource type="Texture2D" uid="uid://6of8wqiephr" path="res://Map/Map Assets/ForestPack/Tiny Swords (Free Pack)/Terrain/Resources/Tools/Torch.png" id="14_6yweb"]
 [ext_resource type="PackedScene" uid="uid://ch7bl6tfk5egy" path="res://Entidades/enemyOne.tscn" id="14_ry46t"]
+[ext_resource type="PackedScene" uid="uid://4axt4ainn1bh" path="res://Entidades/enemyThree.tscn" id="14_three1"]
+[ext_resource type="PackedScene" uid="uid://bt1l510cit51y" path="res://Entidades/enemyTwo.tscn" id="14_two01"]
 [ext_resource type="Script" uid="uid://be78xwh4txg3b" path="res://Entidades/Scripts Entidades/game_manager.gd" id="17_tgjig"]
 [ext_resource type="Texture2D" uid="uid://ctpid6o551oxt" path="res://Map/Map Assets/ForestPack/Tiny Swords (Free Pack)/Terrain/Resources/Meat/Sheep/Sheep_Grass.png" id="18_1watw"]
 [ext_resource type="PackedScene" uid="uid://xtqldc1hupwy" path="res://HUD/HUD.tscn" id="25_6yweb"]
@@ -758,7 +760,7 @@ position = Vector2(651, 1)
 
 [node name="GameManager" type="Node" parent="." unique_id=924930578 node_paths=PackedStringArray("spawn_points", "enemies_label")]
 script = ExtResource("17_tgjig")
-enemy_scene = ExtResource("14_ry46t")
+enemy_scenes = Array[PackedScene]([ExtResource("14_ry46t"), ExtResource("14_two01"), ExtResource("14_three1")])
 spawn_points = NodePath("../SpawnPoints")
 enemies_label = NodePath("../Hud/Label2")
 
@@ -775,6 +777,15 @@ position = Vector2(44, 249)
 
 [node name="Marker2D4" type="Marker2D" parent="SpawnPoints" unique_id=987746850]
 position = Vector2(1147, 318)
+
+[node name="Marker2D5" type="Marker2D" parent="SpawnPoints" unique_id=1867599665]
+position = Vector2(439, -245)
+
+[node name="Marker2D6" type="Marker2D" parent="SpawnPoints" unique_id=673217249]
+position = Vector2(1102, -217)
+
+[node name="Marker2D7" type="Marker2D" parent="SpawnPoints" unique_id=1813388217]
+position = Vector2(519, 235)
 
 [node name="Hud" parent="." unique_id=1814789336 instance=ExtResource("25_6yweb")]
 

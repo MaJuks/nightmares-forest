@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://4axt4ainn1bh"]
+
+[ext_resource type="Script" uid="uid://bccak23fuafux" path="res://Entidades/Scripts Entidades/enemyThree.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://4gbljr42pab1" path="res://Entidades/item_cura.tscn" id="2_drop"]
+[ext_resource type="PackedScene" uid="uid://cn3x8rytpr400" path="res://Entidades/enemy_projectile.tscn" id="3_proj"]
+[ext_resource type="Texture2D" uid="uid://caxctmekut3rm" path="res://Sprites/enemyThree/character-idle-0.png" id="4_idle0"]
+[ext_resource type="Texture2D" uid="uid://62ui75xp7epe" path="res://Sprites/enemyThree/character-idle-1.png" id="5_idle1"]
+[ext_resource type="Texture2D" uid="uid://bf36st5dt5qji" path="res://Sprites/enemyThree/character-idle-2.png" id="6_idle2"]
+[ext_resource type="Texture2D" uid="uid://bhld8ayut7ago" path="res://Sprites/enemyThree/character-idle-3.png" id="7_idle3"]
+[ext_resource type="Texture2D" uid="uid://dtjhablt6vmt5" path="res://Sprites/enemyThree/character-run-0.png" id="8_run0"]
+[ext_resource type="Texture2D" uid="uid://bkperafqm1hw2" path="res://Sprites/enemyThree/character-run-1.png" id="9_run1"]
+[ext_resource type="Texture2D" uid="uid://bdl6ky73hmbp0" path="res://Sprites/enemyThree/character-run-2.png" id="10_run2"]
+[ext_resource type="Texture2D" uid="uid://b06ou2y414usm" path="res://Sprites/enemyThree/character-run-3.png" id="11_run3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_three"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_idle0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_idle1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_idle2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_idle3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_run0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_run1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_run2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_run3")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(24, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hit"]
+size = Vector2(24, 52)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp"]
+bg_color = Color(0.05490196, 0.70980394, 0, 1)
+
+[node name="enemyThree" type="CharacterBody2D" unique_id=335935081]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_script")
+drop_item = ExtResource("2_drop")
+projectile_scene = ExtResource("3_proj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=888517067]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_three")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.22753875
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2073433771]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1630823803]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1264476573]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_hit")
+debug_color = Color(0.904304, 0, 0.06884131, 0.41960785)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=937881631]
+wait_time = 1.5
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1763227139]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -44.0
+theme_override_colors/font_color = Color(0.22894648, 0.99788445, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.92941177, 0, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_hp")
+max_value = 4.0
+value = 4.0
+show_percentage = false
