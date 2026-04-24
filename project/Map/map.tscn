@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://be78xwh4txg3b" path="res://Entidades/Scripts Entidades/game_manager.gd" id="17_tgjig"]
 [ext_resource type="Texture2D" uid="uid://ctpid6o551oxt" path="res://Map/Map Assets/ForestPack/Tiny Swords (Free Pack)/Terrain/Resources/Meat/Sheep/Sheep_Grass.png" id="18_1watw"]
 [ext_resource type="PackedScene" uid="uid://xtqldc1hupwy" path="res://HUD/HUD.tscn" id="25_6yweb"]
+[ext_resource type="FontFile" uid="uid://dta2k5h4ub12f" path="res://HUD/Fonte/PressStart2P-Regular.ttf" id="28_f3t3g"]
 
 [sub_resource type="Gradient" id="Gradient_43pbm"]
 offsets = PackedFloat32Array(0, 0.2421875, 0.5859375, 0.84375, 1)
@@ -711,6 +712,9 @@ sources/2 = SubResource("TileSetAtlasSource_aflrc")
 sources/4 = SubResource("TileSetAtlasSource_1watw")
 sources/5 = SubResource("TileSetAtlasSource_tuo8d")
 
+[sub_resource type="LabelSettings" id="LabelSettings_tlkso"]
+font = ExtResource("28_f3t3g")
+
 [node name="Map" type="Node2D" unique_id=1191358320]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=97049478]
@@ -792,3 +796,4 @@ position = Vector2(519, 235)
 [node name="Label3" type="Label" parent="Hud" unique_id=1376043789]
 offset_right = 40.0
 offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_tlkso")

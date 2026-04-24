@@ -24,6 +24,10 @@ window/size/viewport_height=768
 
 project/assembly_name="Novo Projeto de Jogo"
 
+[gui]
+
+theme/custom_font="uid://dta2k5h4ub12f"
+
 [input]
 
 ui_left={

@@ -4,8 +4,8 @@ extends Node
 @export var spawn_points: Node2D
 @export var enemies_label: Label
 
-const ENEMIES_PER_HORDE: int = 10
-const ENEMIES_TO_DISPLAY: int = 10
+const ENEMIES_PER_HORDE: int = 50
+const ENEMIES_TO_DISPLAY: int = 50
 const SPAWN_INTERVAL: float = 2.0
 
 var enemies_spawned: int = 0
@@ -59,4 +59,6 @@ func update_label() -> void:
 		enemies_label.text = "Inimigos Restantes: " + str(restantes)
 
 func horde_complete() -> void:
-	enemies_label.text = "Noite 1 finalizada!!!"
+	#enemies_label.text = "Noite 1 finalizada!!!" linha desativada para mostrar final na apresentação
+	var end = preload("res://HUD/End.tscn").instantiate()
+	get_tree().root.add_child(end)

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://eakf6a4oikij"]
+
+[ext_resource type="FontFile" uid="uid://dta2k5h4ub12f" path="res://HUD/Fonte/PressStart2P-Regular.ttf" id="1_kkxh1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c3oy6"]
+font = ExtResource("1_kkxh1")
+font_size = 30
+
+[node name="End_tscn" type="CanvasLayer" unique_id=190146189]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=48266690]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=320885489]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fim."
+label_settings = SubResource("LabelSettings_c3oy6")
+horizontal_alignment = 1
+vertical_alignment = 1
