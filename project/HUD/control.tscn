@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://epohv1n5sycr"]
+
+[ext_resource type="Script" uid="uid://8k3d4ctnvcwu" path="res://HUD/SCRIPTS HUD/main_menu.gd" id="1_josvs"]
+[ext_resource type="Texture2D" uid="uid://br3hkqhmpumdj" path="res://Sprites/upgrade_menu/background-menu.png" id="2_11jmw"]
+[ext_resource type="Texture2D" uid="uid://dmt46gj448i85" path="res://Sprites/upgrade_menu/logo.png" id="3_hvc3o"]
+[ext_resource type="Texture2D" uid="uid://dpdqtxwvkcnhy" path="res://Sprites/upgrade_menu/botao_jogar.png" id="4_rs2r1"]
+[ext_resource type="Texture2D" uid="uid://dim7vb77a7ok7" path="res://Sprites/upgrade_menu/botao_jogar_pressionado.png" id="5_bl5m4"]
+[ext_resource type="Texture2D" uid="uid://dj7dwfiyfgc8j" path="res://Sprites/upgrade_menu/carregando_1.png" id="6_rs2r1"]
+[ext_resource type="Texture2D" uid="uid://0ti7ecwebd2i" path="res://Sprites/upgrade_menu/carregando_2.png" id="7_bl5m4"]
+[ext_resource type="Texture2D" uid="uid://dadv5j0boa1k5" path="res://Sprites/upgrade_menu/carregando_3.png" id="8_8w3b3"]
+
+[node name="Control" type="Control" unique_id=1907587872]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_josvs")
+
+[node name="background" type="TextureRect" parent="." unique_id=377858167]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_11jmw")
+
+[node name="logo" type="TextureRect" parent="." unique_id=1697865770]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -614.0
+offset_top = -514.0
+offset_right = 922.0
+offset_bottom = 510.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_hvc3o")
+
+[node name="playButton" type="TextureButton" parent="." unique_id=459095244]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 442.0
+offset_right = 2139.0
+offset_bottom = 1383.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("4_rs2r1")
+texture_pressed = ExtResource("5_bl5m4")
+
+[node name="loading1" type="TextureRect" parent="." unique_id=1695931026]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -114.0
+offset_right = 1363.0
+offset_bottom = 910.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_rs2r1")
+
+[node name="loading2" type="TextureRect" parent="." unique_id=1877611535]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -114.0
+offset_right = 1363.0
+offset_bottom = 910.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_bl5m4")
+
+[node name="loading3" type="TextureRect" parent="." unique_id=1556776950]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -114.0
+offset_right = 1363.0
+offset_bottom = 910.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_8w3b3")
+
+[connection signal="pressed" from="playButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]

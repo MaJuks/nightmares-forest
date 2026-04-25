@@ -66,22 +66,21 @@ func stop_shooting() -> void:
 		sprite.play("idle_right")
 		
 func flash_muzzle_light() -> void:
-	# Escolhe a luz certa baseado na direção
 	var light = light_left if facing_left else light_right
 	
-	# Cancela flash anterior se ainda estiver rodando
+
 	if flash_tween:
 		flash_tween.kill()
 	
-	# Apaga a luz errada (caso tenha ficado ligada)
+
 	var other_light = light_right if facing_left else light_left
 	other_light.visible = false
 	
-	# Acende com energia máxima
+
 	light.visible = true
 	light.energy = 1.5
 	
-	# Fade out suave
+
 	flash_tween = create_tween()
 	flash_tween.tween_property(light, "energy", 0.0, 0.5)
 	flash_tween.tween_callback(func(): light.visible = false)
@@ -100,5 +99,5 @@ func shoot_bullet() -> void:
 
 	get_tree().root.add_child(bullet_instance)
 	
-	flash_muzzle_light()  # ← chama o flash aqui
+	flash_muzzle_light() 
 	
