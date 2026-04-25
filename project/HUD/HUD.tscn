@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://pmc8isrk2m8c" path="res://HUD/SCRIPTS HUD/hud.gd" id="1_f31rt"]
 [ext_resource type="FontFile" uid="uid://dta2k5h4ub12f" path="res://HUD/Fonte/PressStart2P-Regular.ttf" id="2_b7ubu"]
+[ext_resource type="Texture2D" uid="uid://b5huyvpl1awtt" path="res://Sprites/hud/Sprite-0008.png" id="3_amwvk"]
+[ext_resource type="Texture2D" uid="uid://bjyx5le4otxqx" path="res://Sprites/hud/xp_bar.png" id="4_amwvk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ja1d4"]
 font = ExtResource("2_b7ubu")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ja1d4"]
+load_path = "res://.godot/imported/health_bar.png-c90e0ae97148f8ab96514d5bd356daad.ctex"
 
 [node name="Hud" type="CanvasLayer" unique_id=1814789336]
 offset = Vector2(600, 0)
@@ -17,15 +22,36 @@ offset_right = 40.0
 offset_bottom = 25.15
 label_settings = SubResource("LabelSettings_ja1d4")
 
-[node name="HealthBar" type="ProgressBar" parent="." unique_id=1545645067]
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=343698548]
 offset_left = -583.0
 offset_top = 17.0
 offset_right = -244.0
 offset_bottom = 44.0
-show_percentage = false
+texture_under = ExtResource("3_amwvk")
+texture_progress = SubResource("CompressedTexture2D_ja1d4")
+texture_progress_offset = Vector2(11, 13)
 
 [node name="LabelHealthBar" type="Label" parent="." unique_id=1415273310]
-offset_left = -487.0
-offset_top = 19.0
-offset_right = -447.0
-offset_bottom = 42.0
+offset_left = -450.0
+offset_top = 35.0
+offset_right = -410.0
+offset_bottom = 58.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/shadow_outline_size = 3
+
+[node name="XpBar" type="TextureProgressBar" parent="." unique_id=1466680382]
+offset_left = -583.0
+offset_top = 74.0
+offset_right = -178.0
+offset_bottom = 126.0
+texture_under = ExtResource("3_amwvk")
+texture_progress = ExtResource("4_amwvk")
+texture_progress_offset = Vector2(11, 13)
+
+[node name="LabelXpBar" type="Label" parent="." unique_id=1545521476]
+offset_left = -450.0
+offset_top = 87.0
+offset_right = -410.0
+offset_bottom = 110.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/shadow_outline_size = 3

@@ -42,9 +42,12 @@ func _ready():
 	stats.health_depleted.connect(_on_health_depleted)
 	stats.health_change.connect(_on_health_change)
 	stats.level_up.connect(_on_level_up)
+	stats.xp_change.connect(_on_xp_change)
+	
 	var hud = get_tree().get_first_node_in_group("canvas_layer")
 	if hud:
 		hud.update_health(stats.health, stats.current_max_health)
+		hud.update_xp(stats.xp_progress())
 	
 func _on_level_up(new_level: int) -> void:
 	get_tree().paused = true
@@ -52,6 +55,11 @@ func _on_level_up(new_level: int) -> void:
 	upgrade_ui.process_mode = Node.PROCESS_MODE_ALWAYS
 	upgrade_ui.setup(stats)	
 	get_tree().root.add_child(upgrade_ui)
+	
+func _on_xp_change(progress: float) -> void:
+	var hud = get_tree().get_first_node_in_group("hud")
+	if hud:
+		hud.update_xp(progress)
 
 func _on_health_depleted():
 	# Lógica de morte do player aqui

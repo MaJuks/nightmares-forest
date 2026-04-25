@@ -10,7 +10,9 @@ enum BuffableStats {
 
 const BASE_LEVEL_XP: float = 100.0
 const UPGRADE_AMOUNT: int = 20
+const MAX_XP: int = 5000
 
+signal xp_change(progress: float) 
 signal health_depleted
 signal health_change(cur_health: int, max_health: int)
 signal level_up(new_level: int)
@@ -19,6 +21,9 @@ signal level_up(new_level: int)
 @export var base_velocity: int = 150
 @export var base_damage: int = 10
 @export var experience: int = 0: set = _on_experience_set
+
+func current_level_xp() -> int:
+	return int(pow(level - 0.5, 2) * BASE_LEVEL_XP)
 
 var level: int: 
 	get(): return floor(max(1.0, sqrt(experience / BASE_LEVEL_XP)+ 0.5))
@@ -49,9 +54,21 @@ func _on_health_set(new_value: int) -> void:
 	health_change.emit(health, current_max_health)
 	if health <= 0:
 		health_depleted.emit()
+		
+func next_level_xp() -> int:
+	return int(pow(level + 0.5, 2) * BASE_LEVEL_XP)
 
+func xp_progress() -> float:
+	var cur = experience - current_level_xp()
+	var needed = next_level_xp() - current_level_xp()
+	return (float(cur) / float(needed)) * 100.0
+	
+	
 func _on_experience_set(new_value: int) -> void:
 	var old_level: int = level
 	experience = new_value
+	
+	xp_change.emit(xp_progress())
 	if old_level != level:
 		level_up.emit(level)
+		

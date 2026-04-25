@@ -33,7 +33,7 @@ script = ExtResource("2_cdlda")
 metadata/_custom_type_script = "uid://ba1slwrfnngdl"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6q7m"]
-size = Vector2(32, 45)
+size = Vector2(38, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q7xc8"]
 animations = [{
@@ -136,7 +136,7 @@ script = ExtResource("1_kp72u")
 stats = SubResource("Resource_usxke")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1210620567]
-position = Vector2(0, -2.5)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_m6q7m")
 
 [node name="gun" parent="." unique_id=570585026 instance=ExtResource("3_vcobw")]
