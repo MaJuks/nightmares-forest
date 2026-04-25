@@ -41,6 +41,19 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_mjqs7"]
+offsets = PackedFloat32Array(0, 0.012096774, 0.22983871, 0.6814516)
+colors = PackedColorArray(1, 1, 1, 1, 0.9843137, 0.4509804, 0, 1, 0.30585808, 0.10295131, 2.4065375e-08, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xeh3b"]
+gradient = SubResource("Gradient_mjqs7")
+width = 400
+height = 400
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
 [node name="gun" type="Area2D" unique_id=570585026]
 script = ExtResource("1_evw55")
 
@@ -48,10 +61,26 @@ script = ExtResource("1_evw55")
 position = Vector2(1, 1)
 scale = Vector2(1.97, 1.97)
 sprite_frames = SubResource("SpriteFrames_m6n0v")
-animation = &"idle_right"
+animation = &"shoot_right"
 
 [node name="MuzzleLeft" type="Marker2D" parent="." unique_id=1553726112]
 position = Vector2(-113, 0)
 
+[node name="PointLight2D" type="PointLight2D" parent="MuzzleLeft" unique_id=1309268739]
+position = Vector2(17.999992, -3.0517578e-05)
+scale = Vector2(3, 3.309)
+color = Color(1, 0.8666667, 0.53333336, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_xeh3b")
+texture_scale = 10.0
+
 [node name="MuzzleRight" type="Marker2D" parent="." unique_id=1014841442]
 position = Vector2(89, 2)
+
+[node name="PointLight2D" type="PointLight2D" parent="MuzzleRight" unique_id=1595861842]
+position = Vector2(17.999992, -3.0517578e-05)
+scale = Vector2(3, 3.309)
+color = Color(1, 0.8666667, 0.53333336, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_xeh3b")
+texture_scale = 10.0

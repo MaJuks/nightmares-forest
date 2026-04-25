@@ -3,6 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://bcp0y5onwls1e" path="res://Sprites/gun/normal/right.png" id="1_o2wld"]
 [ext_resource type="Texture2D" uid="uid://cttxhobxvnk14" path="res://Sprites/gun/fired/fired-right.png" id="2_8xwfw"]
 
+[sub_resource type="Gradient" id="Gradient_ni4la"]
+offsets = PackedFloat32Array(0, 0.2421875, 0.5859375, 0.84375, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.8745098, 0, 1, 1, 0.41960785, 0, 1, 0.18431373, 0.02745098, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_if1c3"]
+gradient = SubResource("Gradient_ni4la")
+width = 150
+height = 150
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="Weapon" type="Node2D" unique_id=1561290046]
 
 [node name="gun" type="Sprite2D" parent="." unique_id=923295164]
@@ -11,3 +24,9 @@ texture = ExtResource("1_o2wld")
 [node name="fire" type="Sprite2D" parent="." unique_id=101607602]
 visible = false
 texture = ExtResource("2_8xwfw")
+
+[node name="PointLight2D" type="PointLight2D" parent="fire" unique_id=127773791]
+position = Vector2(76, 1.000001)
+scale = Vector2(1.0625019, 1.1718738)
+texture = SubResource("GradientTexture2D_if1c3")
+texture_scale = 5.0

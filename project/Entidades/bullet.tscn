@@ -22,6 +22,19 @@ animations = [{
 radius = 9.0
 height = 18.0
 
+[sub_resource type="Gradient" id="Gradient_43pbm"]
+offsets = PackedFloat32Array(0, 0.2421875, 0.5859375, 0.84375, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.8745098, 0, 1, 1, 0.41960785, 0, 1, 0.18431373, 0.02745098, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wjb3h"]
+gradient = SubResource("Gradient_43pbm")
+width = 150
+height = 150
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="bullet" type="Area2D" unique_id=876491677 groups=["bullets"]]
 collision_layer = 8
 collision_mask = 2
@@ -37,5 +50,10 @@ frame_progress = 1.0
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1604813511]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_47c0t")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2128437993]
+scale = Vector2(0.6828128, 0.7531002)
+texture = SubResource("GradientTexture2D_wjb3h")
+texture_scale = 0.2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

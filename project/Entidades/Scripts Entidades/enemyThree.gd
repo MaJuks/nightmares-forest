@@ -11,7 +11,7 @@ signal xp_droped(amount: int)
 
 @export var drop_item: PackedScene
 @export var projectile_scene: PackedScene
-@export var xp_reward: int = 150
+@export var xp_reward: int = 50
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $Hitbox
 @onready var health_bar: ProgressBar = $ProgressBar
