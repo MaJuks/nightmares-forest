@@ -18,14 +18,12 @@ offset_bottom = 25.15
 label_settings = SubResource("LabelSettings_ja1d4")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=1545645067]
-offset_left = -583.0
-offset_top = 17.0
-offset_right = -244.0
-offset_bottom = 44.0
+offset_left = -599.0
+offset_right = -260.0
+offset_bottom = 27.0
 show_percentage = false
 
-[node name="LabelHealthBar" type="Label" parent="." unique_id=1415273310]
-offset_left = -487.0
-offset_top = 19.0
-offset_right = -447.0
-offset_bottom = 42.0
+[node name="LabelHealthBar" type="Label" parent="HealthBar" unique_id=1415273310]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

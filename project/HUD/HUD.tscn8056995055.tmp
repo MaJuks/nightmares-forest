@@ -12,20 +12,12 @@ transform = Transform2D(1, 0, 0, 1, 600, 0)
 script = ExtResource("1_f31rt")
 
 [node name="Label2" type="Label" parent="." unique_id=1346610550]
-offset_top = 2.15
 offset_right = 40.0
-offset_bottom = 25.15
+offset_bottom = 23.0
 label_settings = SubResource("LabelSettings_ja1d4")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=1545645067]
-offset_left = -583.0
-offset_top = 17.0
-offset_right = -244.0
-offset_bottom = 44.0
+offset_left = -599.0
+offset_right = -260.0
+offset_bottom = 27.0
 show_percentage = false
-
-[node name="LabelHealthBar" type="Label" parent="." unique_id=1415273310]
-offset_left = -487.0
-offset_top = 19.0
-offset_right = -447.0
-offset_bottom = 42.0
