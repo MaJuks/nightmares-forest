@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bev8a1gppy0q1"]
+
+[ext_resource type="Script" uid="uid://dpfsf7vlsthah" path="res://HUD/SCRIPTS HUD/volume_menu.gd" id="1_13gsl"]
+[ext_resource type="Texture2D" uid="uid://bp0xk4lkx4ihk" path="res://Sprites/pause_menu/menu_volume.png" id="2_6kful"]
+[ext_resource type="Texture2D" uid="uid://i8ygo1hmq0s3" path="res://Sprites/pause_menu/slider novo.png" id="3_6kful"]
+[ext_resource type="Texture2D" uid="uid://do63f24rdh0jq" path="res://Sprites/pause_menu/go_back_button.png" id="3_ptwse"]
+[ext_resource type="Texture2D" uid="uid://d3dnmtraspfyn" path="res://Sprites/pause_menu/volume_slider_control2.png" id="4_6kful"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6kful"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g0eh1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6vbwi"]
+texture = ExtResource("3_ptwse")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6kful"]
+texture = ExtResource("3_ptwse")
+modulate_color = Color(0.735357, 0.735357, 0.735357, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g0eh1"]
+texture = ExtResource("3_ptwse")
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[node name="VolumeMenu" type="CanvasLayer" unique_id=1840300810]
+script = ExtResource("1_13gsl")
+metadata/_edit_horizontal_guides_ = [380.0]
+metadata/_edit_vertical_guides_ = [680.0]
+
+[node name="MenuVolume" type="Sprite2D" parent="." unique_id=1267988130]
+position = Vector2(680, 380)
+scale = Vector2(0.47660822, 0.4766082)
+texture = ExtResource("2_6kful")
+
+[node name="SliderNovo" type="Sprite2D" parent="." unique_id=1543414653]
+position = Vector2(682, 333)
+scale = Vector2(0.15645695, 0.15645696)
+texture = ExtResource("3_6kful")
+
+[node name="HSlider" type="HSlider" parent="." unique_id=458540228]
+offset_left = 600.0
+offset_top = 326.0
+offset_right = 898.0
+offset_bottom = 357.0
+scale = Vector2(0.5, 0.5)
+theme_override_icons/grabber = ExtResource("4_6kful")
+theme_override_icons/grabber_highlight = ExtResource("4_6kful")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_6kful")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_g0eh1")
+max_value = 1.5
+step = 0.001
+
+[node name="Button" type="Button" parent="." unique_id=1464350929]
+offset_left = 613.0
+offset_top = 393.0
+offset_right = 747.02704
+offset_bottom = 451.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_6vbwi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6kful")
+theme_override_styles/hover = SubResource("StyleBoxTexture_g0eh1")
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_back_button_pressed"]

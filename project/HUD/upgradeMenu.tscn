@@ -70,6 +70,7 @@ theme_override_fonts/font = ExtResource("2_nwm0i")
 theme_override_styles/normal = SubResource("StyleBoxTexture_pnh32")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3uime")
 theme_override_styles/hover = SubResource("StyleBoxTexture_pfsmm")
+action_mode = 0
 text = "Dano"
 autowrap_trim_flags = 0
 
