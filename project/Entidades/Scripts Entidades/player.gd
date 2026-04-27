@@ -62,7 +62,17 @@ func _on_xp_change(progress: float) -> void:
 		hud.update_xp(progress)
 
 func _on_health_depleted():
-	# Lógica de morte do player aqui
+	var camera = $Camera2D
+	var cam_pos = camera.global_position
+	remove_child(camera)
+	get_parent().add_child(camera)
+	camera.global_position = cam_pos
+
+	var hud = get_tree().get_first_node_in_group("hud")
+	if hud:
+		hud.visible = false
+	var death_menu = preload("res://HUD/death_menu.tscn").instantiate()
+	get_tree().root.add_child(death_menu)
 	queue_free()
 
 func _on_health_change(cur_health: int, max_health: int):
@@ -75,6 +85,7 @@ func take_damage(amount: int) -> void:
 	if invincible:
 		return
 	stats.health -= amount
+	velocity = Vector2.ZERO
 	invincible = true
 	await get_tree().create_timer(1.0).timeout
 	invincible = false

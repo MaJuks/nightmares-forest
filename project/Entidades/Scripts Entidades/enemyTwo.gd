@@ -18,6 +18,7 @@ var health: int = max_health
 var damage: int = 10
 var status: enemyOneState
 var player: CharacterBody2D
+const MIN_DISTANCE = 40.0
 
 func _ready() -> void:
 	animated_sprite_2d.animation_finished.connect(_on_animation_finished)
@@ -32,6 +33,9 @@ func _on_damage_area_body_entered(body: Node) -> void:
 		body.take_damage(damage)
 
 func _physics_process(delta: float) -> void:
+	for body in hitbox.get_overlapping_bodies():
+		if body.is_in_group("player"):
+			body.take_damage(damage)
 	match status:
 		enemyOneState.WALKING:
 			walk_state(delta)
@@ -57,9 +61,14 @@ func walk_state(_delta: float) -> void:
 	if player == null:
 		return
 
-	var direcao = (player.global_position - global_position).normalized()
-	velocity = direcao * SPEED
-	animated_sprite_2d.flip_h = direcao.x < 0
+	var distance = global_position.distance_to(player.global_position)
+	if distance <= MIN_DISTANCE:
+		velocity = Vector2.ZERO
+		return
+
+	var direction = (player.global_position - global_position).normalized()
+	velocity = direction * SPEED
+	animated_sprite_2d.flip_h = direction.x < 0
 
 func dead_state(_delta: float) -> void:
 	velocity = velocity.move_toward(Vector2.ZERO, SPEED)

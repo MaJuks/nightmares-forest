@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://cyccl1ceg47gn"]
+
+[ext_resource type="Script" uid="uid://b2sn5yrgpggni" path="res://HUD/SCRIPTS HUD/death_menu.gd" id="1_death"]
+[ext_resource type="Texture2D" uid="uid://iss4w6848xw6" path="res://Sprites/pause_menu/menu.png" id="2_death"]
+[ext_resource type="Texture2D" uid="uid://c1i30xxcjwkfm" path="res://Sprites/pause_menu/exit_button.png" id="4_death"]
+[ext_resource type="FontFile" uid="uid://dta2k5h4ub12f" path="res://HUD/Fonte/PressStart2P-Regular.ttf" id="5_death"]
+[ext_resource type="Texture2D" uid="uid://bj1i0eay0sql8" path="res://Sprites/hud/skull007.png" id="6_obhhu"]
+[ext_resource type="Texture2D" uid="uid://bttnknk1jj4ud" path="res://Sprites/hud/restart.png" id="7_reiniciar"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_death"]
+font = ExtResource("5_death")
+font_size = 18
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_restart"]
+texture = ExtResource("7_reiniciar")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_restart_hover"]
+texture = ExtResource("7_reiniciar")
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exit"]
+texture = ExtResource("4_death")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_exit_hover"]
+texture = ExtResource("4_death")
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[node name="DeathMenu" type="CanvasLayer" unique_id=2125480458]
+script = ExtResource("1_death")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=333754251]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -234.0
+offset_right = 525.0
+offset_bottom = 686.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.505, 0.505)
+size_flags_horizontal = 4
+texture = ExtResource("2_death")
+
+[node name="Label" type="Label" parent="." unique_id=651569043]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -200.0
+offset_right = 160.0
+offset_bottom = -155.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Você morreu."
+label_settings = SubResource("LabelSettings_death")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=372538273]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -130.0
+offset_right = 60.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_obhhu")
+expand_mode = 1
+
+[node name="restart_button" type="Button" parent="." unique_id=915452455]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = 26.0
+offset_right = 95.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_restart")
+theme_override_styles/hover = SubResource("StyleBoxTexture_restart_hover")
+
+[node name="exit_button" type="Button" parent="." unique_id=1203544926]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = 112.0
+offset_right = 96.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_exit")
+theme_override_styles/hover = SubResource("StyleBoxTexture_exit_hover")
+
+[connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

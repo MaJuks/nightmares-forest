@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://o1uwv6v1d53k" path="res://Sprites/pause_menu/volume_button.png" id="3_dtna5"]
 [ext_resource type="Texture2D" uid="uid://c1i30xxcjwkfm" path="res://Sprites/pause_menu/exit_button.png" id="4_l50r6"]
 [ext_resource type="Texture2D" uid="uid://cmt06dexak058" path="res://Sprites/pause_menu/continue_button.png" id="5_3i4v1"]
+[ext_resource type="Texture2D" uid="uid://bttnknk1jj4ud" path="res://Sprites/hud/restart.png" id="6_restart"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_37bjv"]
 texture = ExtResource("3_dtna5")
@@ -31,6 +32,13 @@ modulate_color = Color(0.735357, 0.735357, 0.735357, 1)
 texture = ExtResource("5_3i4v1")
 modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_restart"]
+texture = ExtResource("6_restart")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_restart_hover"]
+texture = ExtResource("6_restart")
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
 [node name="PauseMenu" type="CanvasLayer" unique_id=1752731739]
 script = ExtResource("1_u1h4l")
 metadata/_edit_vertical_guides_ = [680.0]
@@ -52,34 +60,72 @@ scale = Vector2(0.505, 0.505)
 size_flags_horizontal = 4
 texture = ExtResource("2_u1h4l")
 
+[node name="continue_button" type="Button" parent="." unique_id=2023506459]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -182.0
+offset_right = 100.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_yfg0t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vv7ux")
+theme_override_styles/hover = SubResource("StyleBoxTexture_avvx5")
+
+[node name="restart_button" type="Button" parent="." unique_id=1122334455]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -86.0
+offset_right = 100.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_restart")
+theme_override_styles/hover = SubResource("StyleBoxTexture_restart_hover")
+
 [node name="volume_button" type="Button" parent="." unique_id=302565190]
 process_mode = 3
-offset_left = 587.0
-offset_top = 334.0
-offset_right = 786.2756
-offset_bottom = 410.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_37bjv")
 theme_override_styles/hover = SubResource("StyleBoxTexture_u1h4l")
 
 [node name="exit_button" type="Button" parent="." unique_id=1893835958]
 process_mode = 3
-offset_left = 589.0
-offset_top = 459.0
-offset_right = 788.27563
-offset_bottom = 535.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 106.0
+offset_right = 100.0
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_o0f42")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dtna5")
-
-[node name="continue_button" type="Button" parent="." unique_id=2023506459]
-process_mode = 3
-offset_left = 585.0
-offset_top = 205.0
-offset_right = 784.2756
-offset_bottom = 281.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_yfg0t")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_vv7ux")
-theme_override_styles/hover = SubResource("StyleBoxTexture_avvx5")
 
 [connection signal="pressed" from="volume_button" to="." method="_on_volume_button_pressed"]
 [connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="continue_button" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]

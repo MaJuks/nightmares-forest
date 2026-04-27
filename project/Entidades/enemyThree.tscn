@@ -60,7 +60,7 @@ bg_color = Color(0.05490196, 0.70980394, 0, 1)
 
 [node name="enemyThree" type="CharacterBody2D" unique_id=335935081]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 script = ExtResource("1_script")
 drop_item = ExtResource("2_drop")
 projectile_scene = ExtResource("3_proj")

@@ -34,6 +34,9 @@ func _on_damage_area_body_entered(body: Node) -> void:
 		body.take_damage(damage)
 
 func _physics_process(delta: float) -> void:
+	for body in hitbox.get_overlapping_bodies():
+		if body.is_in_group("player"):
+			body.take_damage(damage)
 	match status:
 		enemyOneState.WALKING:
 			walk_state(delta)

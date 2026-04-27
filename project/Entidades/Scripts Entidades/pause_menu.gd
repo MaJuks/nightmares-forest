@@ -6,6 +6,7 @@ func _ready() -> void:
 	add_to_group("pause_menu")
 	
 	$continue_button.process_mode = Node.PROCESS_MODE_ALWAYS
+	$restart_button.process_mode = Node.PROCESS_MODE_ALWAYS
 	$volume_button.process_mode = Node.PROCESS_MODE_ALWAYS
 	$exit_button.process_mode = Node.PROCESS_MODE_ALWAYS
 
@@ -22,6 +23,11 @@ func toggle_pause() -> void:
 # Botão Continuar
 func _on_continue_button_pressed() -> void:
 	toggle_pause()
+
+# Botão Reiniciar
+func _on_restart_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()
 
 # Botão Volume
 func _on_volume_button_pressed() -> void:
