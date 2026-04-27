@@ -8,7 +8,7 @@ atlas = ExtResource("2_arrows")
 region = Rect2(2240, 3552, 544, 160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mk6se"]
-size = Vector2(24, 11)
+size = Vector2(76, 24)
 
 [node name="enemy_projectile" type="Area2D" unique_id=794764939 groups=["enemy_projectiles"]]
 scale = Vector2(0.5, 0.5)
@@ -20,4 +20,5 @@ scale = Vector2(0.15, 0.15)
 texture = SubResource("AtlasTexture_arrow")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1054207820]
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_mk6se")

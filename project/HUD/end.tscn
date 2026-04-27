@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://eakf6a4oikij"]
 
 [ext_resource type="FontFile" uid="uid://dta2k5h4ub12f" path="res://HUD/Fonte/PressStart2P-Regular.ttf" id="1_kkxh1"]
+[ext_resource type="Script" uid="uid://ctgim5buxh1pg" path="res://HUD/SCRIPTS HUD/end.gd" id="1_u5id1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c3oy6"]
 font = ExtResource("1_kkxh1")
 font_size = 30
 
 [node name="End_tscn" type="CanvasLayer" unique_id=190146189]
+script = ExtResource("1_u5id1")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=48266690]
 anchors_preset = 15
