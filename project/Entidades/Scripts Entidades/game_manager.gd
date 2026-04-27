@@ -6,7 +6,7 @@ extends Node
 
 const ENEMIES_PER_HORDE: int = 50
 const ENEMIES_TO_DISPLAY: int = 50
-const SPAWN_INTERVAL: float = 2.0
+const SPAWN_INTERVAL: float = 1.0
 
 var enemies_spawned: int = 0
 var enemies_alive: int = 0
@@ -42,7 +42,7 @@ func spawn_next_enemy() -> void:
 	enemies_alive += 1
 
 	if enemies_spawned <= ENEMIES_PER_HORDE - 1:
-		await get_tree().create_timer(SPAWN_INTERVAL).timeout
+		await get_tree().create_timer(SPAWN_INTERVAL, false).timeout
 		spawn_next_enemy()
 
 func _on_enemy_died() -> void:
@@ -59,6 +59,10 @@ func update_label() -> void:
 		enemies_label.text = "Inimigos Restantes: " + str(restantes)
 
 func horde_complete() -> void:
+	var hud = get_tree().get_first_node_in_group("hud")
+	if hud:
+		hud.visible = false
 	#enemies_label.text = "Noite 1 finalizada!!!" linha desativada para mostrar final na apresentação
 	var end = preload("res://HUD/End.tscn").instantiate()
 	get_tree().root.add_child(end)
+	

@@ -43,23 +43,28 @@ func _process(delta: float) -> void:
 	if not Input.is_action_pressed("shoot") and shooting:
 		stop_shooting()
 
+var _shoot_loop_id := 0
+
 func start_shooting() -> void:
+	if shooting:
+		return
 	shooting = true
-	sprite.speed_scale = 5.0
+	_shoot_loop_id += 1
+	var my_id = _shoot_loop_id
 
 	if facing_left:
 		sprite.play("shoot_left")
 	else:
 		sprite.play("shoot_right")
+	sprite.speed_scale = 5.0
 
-	while shooting:
+	while shooting and _shoot_loop_id == my_id:
 		shoot_bullet()
-		await get_tree().create_timer(fire_rate).timeout
+		await get_tree().create_timer(fire_rate, false).timeout
 
 func stop_shooting() -> void:
 	shooting = false
 	sprite.speed_scale = 1.0
-
 	if facing_left:
 		sprite.play("idle_left")
 	else:

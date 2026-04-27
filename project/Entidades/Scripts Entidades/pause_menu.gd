@@ -11,6 +11,8 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
+		if get_tree().get_first_node_in_group("upgrade_menu"):
+			return
 		toggle_pause()
 
 func toggle_pause() -> void:

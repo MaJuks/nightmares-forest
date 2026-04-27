@@ -2,6 +2,9 @@ extends CanvasLayer
 
 var stats: Stats
 
+func _ready() -> void:
+	add_to_group("upgrade_menu")
+	
 func setup(player_stats: Stats) -> void:
 	stats = player_stats
 
