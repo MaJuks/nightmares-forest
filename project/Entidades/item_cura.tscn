@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4gbljr42pab1"]
 
-[ext_resource type="Script" uid="uid://cariyoyy2chyn" path="res://Entidades/Scripts Entidades/item_cura.gd" id="1_ikuld"]
+[ext_resource type="Script" uid="uid://d2vw6hlqwugcn" path="res://Entidades/Scripts Entidades/item_cura.gd" id="1_ikuld"]
 [ext_resource type="Texture2D" uid="uid://bt1k68en3qm3g" path="res://Sprites/heal/potion-bottle-still.png" id="2_ejcch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ledv"]

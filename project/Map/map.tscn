@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ch7bl6tfk5egy" path="res://Entidades/enemyOne.tscn" id="14_ry46t"]
 [ext_resource type="PackedScene" uid="uid://4axt4ainn1bh" path="res://Entidades/enemyThree.tscn" id="14_three1"]
 [ext_resource type="PackedScene" uid="uid://bt1l510cit51y" path="res://Entidades/enemyTwo.tscn" id="14_two01"]
-[ext_resource type="Script" uid="uid://be78xwh4txg3b" path="res://Entidades/Scripts Entidades/game_manager.gd" id="17_tgjig"]
+[ext_resource type="Script" uid="uid://bkv20is1xyq0c" path="res://Entidades/Scripts Entidades/game_manager.gd" id="17_tgjig"]
 [ext_resource type="Texture2D" uid="uid://ctpid6o551oxt" path="res://Map/Map Assets/ForestPack/Tiny Swords (Free Pack)/Terrain/Resources/Meat/Sheep/Sheep_Grass.png" id="18_1watw"]
 [ext_resource type="PackedScene" uid="uid://xtqldc1hupwy" path="res://HUD/HUD.tscn" id="25_6yweb"]
 [ext_resource type="FontFile" uid="uid://dta2k5h4ub12f" path="res://HUD/Fonte/PressStart2P-Regular.ttf" id="28_f3t3g"]
@@ -761,7 +761,7 @@ tile_map_data = PackedByteArray("AAANAAgAAwAAABgAAAAMAAUAAwAEAAgAAAAMAAYAAwAEAAk
 tile_set = SubResource("TileSet_mxsvv")
 
 [node name="CharacterBody2D" parent="." unique_id=1797955943 instance=ExtResource("14_05gka")]
-position = Vector2(651, 1)
+position = Vector2(739, -67)
 
 [node name="GameManager" type="Node" parent="." unique_id=924930578 node_paths=PackedStringArray("spawn_points", "enemies_label")]
 script = ExtResource("17_tgjig")

@@ -94,3 +94,11 @@ func _physics_process(delta):
 	get_input()
 	character_movement()
 	move_and_slide()
+	
+func receber_cura(valor: int):
+	stats.health += valor
+	
+	if stats.health > stats.current_max_health:
+		stats.health = stats.current_max_health
+
+	stats.health_change.emit(stats.health, stats.current_max_health)
