@@ -70,6 +70,8 @@ func go_to_dead_state() -> void:
 	hitbox.process_mode = Node.PROCESS_MODE_DISABLED
 	shoot_timer.stop()
 	velocity = Vector2.ZERO
+	set_collision_layer(0)
+	set_collision_mask(0)
 
 	var player_node = get_tree().get_first_node_in_group("player")
 	if player_node:
