@@ -38,13 +38,15 @@ func character_movement():
 
 func _ready():
 	add_to_group("player")
-	# Conecta os sinais do Stats
 	stats.health_depleted.connect(_on_health_depleted)
 	stats.health_change.connect(_on_health_change)
 	stats.level_up.connect(_on_level_up)
 	stats.xp_change.connect(_on_xp_change)
-	
-	var hud = get_tree().get_first_node_in_group("canvas_layer")
+
+	# Aguarda o HUD estar pronto antes de inicializar
+	await get_tree().process_frame
+
+	var hud = get_tree().get_first_node_in_group("hud")
 	if hud:
 		hud.update_health(stats.health, stats.current_max_health)
 		hud.update_xp(stats.xp_progress())

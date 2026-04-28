@@ -1,25 +1,11 @@
 [gd_scene format=3 uid="uid://cg8rfudn4t38q"]
 
-[ext_resource type="Script" uid="uid://kuadlokrjvmr" path="res://Entidades/Scripts Entidades/pause_menu.gd" id="1_u1h4l"]
+[ext_resource type="Script" uid="uid://ba51gltmmusjf" path="res://Entidades/Scripts Entidades/pause_menu.gd" id="1_u1h4l"]
 [ext_resource type="Texture2D" uid="uid://iss4w6848xw6" path="res://Sprites/pause_menu/menu.png" id="2_u1h4l"]
 [ext_resource type="Texture2D" uid="uid://o1uwv6v1d53k" path="res://Sprites/pause_menu/volume_button.png" id="3_dtna5"]
+[ext_resource type="Texture2D" uid="uid://bdsxmi3pi2r4e" path="res://Sprites/pause_menu/reload_button.png" id="4_3mb04"]
 [ext_resource type="Texture2D" uid="uid://c1i30xxcjwkfm" path="res://Sprites/pause_menu/exit_button.png" id="4_l50r6"]
 [ext_resource type="Texture2D" uid="uid://cmt06dexak058" path="res://Sprites/pause_menu/continue_button.png" id="5_3i4v1"]
-[ext_resource type="Texture2D" uid="uid://bttnknk1jj4ud" path="res://Sprites/hud/restart.png" id="6_restart"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_37bjv"]
-texture = ExtResource("3_dtna5")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u1h4l"]
-texture = ExtResource("3_dtna5")
-modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o0f42"]
-texture = ExtResource("4_l50r6")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtna5"]
-texture = ExtResource("4_l50r6")
-modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfg0t"]
 texture = ExtResource("5_3i4v1")
@@ -32,16 +18,42 @@ modulate_color = Color(0.735357, 0.735357, 0.735357, 1)
 texture = ExtResource("5_3i4v1")
 modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_restart"]
-texture = ExtResource("6_restart")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_affeh"]
+texture = ExtResource("4_3mb04")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_restart_hover"]
-texture = ExtResource("6_restart")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g0iu4"]
+texture = ExtResource("4_3mb04")
+modulate_color = Color(0.735357, 0.735357, 0.735357, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3mb04"]
+texture = ExtResource("4_3mb04")
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_37bjv"]
+texture = ExtResource("3_dtna5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_egt6w"]
+texture = ExtResource("3_dtna5")
+modulate_color = Color(0.735357, 0.735357, 0.735357, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u1h4l"]
+texture = ExtResource("3_dtna5")
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o0f42"]
+texture = ExtResource("4_l50r6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aps6q"]
+texture = ExtResource("4_l50r6")
+modulate_color = Color(0.735357, 0.735357, 0.735357, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtna5"]
+texture = ExtResource("4_l50r6")
 modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1752731739]
 script = ExtResource("1_u1h4l")
-metadata/_edit_vertical_guides_ = [680.0]
+metadata/_edit_vertical_guides_ = [680.0, 585.0, 781.0]
 metadata/_edit_horizontal_guides_ = [379.0, 380.0]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=775396356]
@@ -84,14 +96,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -86.0
-offset_right = 100.0
-offset_bottom = -10.0
+offset_left = -98.0
+offset_top = -88.0
+offset_right = 99.0
+offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_restart")
-theme_override_styles/hover = SubResource("StyleBoxTexture_restart_hover")
+theme_override_styles/normal = SubResource("StyleBoxTexture_affeh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g0iu4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3mb04")
 
 [node name="volume_button" type="Button" parent="." unique_id=302565190]
 process_mode = 3
@@ -107,6 +120,7 @@ offset_bottom = 86.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_37bjv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_egt6w")
 theme_override_styles/hover = SubResource("StyleBoxTexture_u1h4l")
 
 [node name="exit_button" type="Button" parent="." unique_id=1893835958]
@@ -123,9 +137,10 @@ offset_bottom = 182.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_o0f42")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_aps6q")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dtna5")
 
-[connection signal="pressed" from="volume_button" to="." method="_on_volume_button_pressed"]
-[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="volume_button" to="." method="_on_volume_button_pressed"]
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

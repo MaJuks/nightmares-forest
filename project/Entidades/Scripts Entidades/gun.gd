@@ -92,17 +92,18 @@ func flash_muzzle_light() -> void:
 		
 func shoot_bullet() -> void:
 	var bullet_instance = BULLET_SCENE.instantiate()
-
 	var muzzle = muzzle_right
 	if facing_left:
 		muzzle = muzzle_left
-
 	var muzzle_pos = muzzle.global_position
-
 	bullet_instance.global_position = muzzle_pos
 	bullet_instance.direction = (get_global_mouse_position() - muzzle_pos).normalized()
-
-	get_tree().root.add_child(bullet_instance)
 	
-	flash_muzzle_light() 
+	# Pega o dano do stats do player
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		bullet_instance.damage = player.stats.current_damage  # ← novo
+	
+	get_tree().root.add_child(bullet_instance)
+	flash_muzzle_light()
 	

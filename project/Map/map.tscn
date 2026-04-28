@@ -803,5 +803,7 @@ label_settings = SubResource("LabelSettings_tlkso")
 [node name="PauseMenu" parent="." unique_id=1752731739 instance=ExtResource("29_tlkso")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1674574361]
+process_mode = 3
 stream = ExtResource("30_2s2l7")
 autoplay = true
+parameters/looping = true

@@ -13,7 +13,7 @@ enum enemyOneState {
 
 const SPEED = 100.0
 
-var max_health: int = 3
+var max_health: int = 12
 var health: int = max_health
 var damage: int = 10
 var status: enemyOneState

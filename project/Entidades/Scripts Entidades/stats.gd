@@ -9,7 +9,6 @@ enum BuffableStats {
 }
 
 const BASE_LEVEL_XP: float = 100.0
-const UPGRADE_AMOUNT: int = 20
 const MAX_XP: int = 5000
 
 signal xp_change(progress: float) 
@@ -19,7 +18,7 @@ signal level_up(new_level: int)
 
 @export var base_max_health: int = 100
 @export var base_velocity: int = 150
-@export var base_damage: int = 10
+@export var base_damage: int = 2
 @export var experience: int = 0: set = _on_experience_set
 
 func current_level_xp() -> int:
@@ -29,7 +28,7 @@ var level: int:
 	get(): return floor(max(1.0, sqrt(experience / BASE_LEVEL_XP)+ 0.5))
 var current_max_health: int = 100
 var current_velocity: int = 150
-var current_damage: int = 10
+var current_damage: int = 2
 var health: int = 0: set = _on_health_set
 
 func _init() -> void:
@@ -42,12 +41,12 @@ func setup_stats() -> void:
 func apply_upgrade(stat: BuffableStats) -> void:
 	match stat:
 		BuffableStats.MAX_HEALTH:
-			current_max_health += UPGRADE_AMOUNT
-			health = current_max_health
+			current_max_health += 20
+			health = health + 20
 		BuffableStats.VELOCITY:
-			current_velocity += UPGRADE_AMOUNT
+			current_velocity += 10
 		BuffableStats.DAMAGE:
-			current_damage += UPGRADE_AMOUNT
+			current_damage += 1
 	
 func _on_health_set(new_value: int) -> void:
 	health = clampi(new_value, 0, current_max_health)

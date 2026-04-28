@@ -21,7 +21,7 @@ const SPEED = 70.0
 const SHOOT_RANGE = 300.0
 const RETREAT_RANGE = 120.0
 
-var max_health: int = 4
+var max_health: int = 10
 var health: int = max_health
 var damage: int = 8
 var status: enemyState
