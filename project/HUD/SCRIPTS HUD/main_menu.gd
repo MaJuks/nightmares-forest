@@ -72,4 +72,13 @@ func _on_play_button_pressed():
 	update_loading()
 
 	await get_tree().create_timer(3.0).timeout
+
+	# Loading terminou - inicia o fade out da música
+	var music = get_node_or_null("AudioStreamPlayer2D")
+	if music:
+		var tween = create_tween()
+		tween.tween_property(music, "volume_db", -80.0, 1.0)
+
+	# Após 1 segundo a playing_music começa
+	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://Map/map.tscn")

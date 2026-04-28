@@ -13,6 +13,13 @@ var enemies_alive: int = 0
 var enemies_killed: int = 0
 
 func _ready() -> void:
+	# Fade in da música do jogo
+	var music = get_parent().get_node_or_null("AudioStreamPlayer2D")
+	if music:
+		music.volume_db = -80.0
+		var tween = create_tween()
+		tween.tween_property(music, "volume_db", 0.0, 1.5)
+
 	start_horde()
 
 func start_horde() -> void:
@@ -62,7 +69,14 @@ func horde_complete() -> void:
 	var hud = get_tree().get_first_node_in_group("hud")
 	if hud:
 		hud.visible = false
-	#enemies_label.text = "Noite 1 finalizada!!!" linha desativada para mostrar final na apresentação
+  #enemies_label.text = "Noite 1 finalizada!!!" linha desativada para mostrar final na apresentação
+	
+	var music = get_parent().get_node_or_null("AudioStreamPlayer2D")
+	if music:
+		var tween = create_tween()
+		tween.tween_property(music, "volume_db", -80.0, 2.0)
+		tween.tween_callback(music.stop)
+
 	var end = preload("res://HUD/End.tscn").instantiate()
 	get_tree().root.add_child(end)
 	
