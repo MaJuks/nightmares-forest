@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://xtqldc1hupwy" path="res://HUD/HUD.tscn" id="25_6yweb"]
 [ext_resource type="FontFile" uid="uid://dta2k5h4ub12f" path="res://HUD/Fonte/PressStart2P-Regular.ttf" id="28_f3t3g"]
 [ext_resource type="PackedScene" uid="uid://cg8rfudn4t38q" path="res://HUD/pause_menu.tscn" id="29_tlkso"]
+[ext_resource type="AudioStream" uid="uid://cwcrs0bnb8iop" path="res://assets/audio/music/main_music.ogg" id="30_2s2l7"]
 
 [sub_resource type="Gradient" id="Gradient_43pbm"]
 offsets = PackedFloat32Array(0, 0.2421875, 0.5859375, 0.84375, 1)
@@ -800,3 +801,7 @@ offset_bottom = 23.0
 label_settings = SubResource("LabelSettings_tlkso")
 
 [node name="PauseMenu" parent="." unique_id=1752731739 instance=ExtResource("29_tlkso")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1674574361]
+stream = ExtResource("30_2s2l7")
+autoplay = true
