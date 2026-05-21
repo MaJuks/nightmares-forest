@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bkperafqm1hw2" path="res://Sprites/enemyThree/character-run-1.png" id="9_run1"]
 [ext_resource type="Texture2D" uid="uid://bdl6ky73hmbp0" path="res://Sprites/enemyThree/character-run-2.png" id="10_run2"]
 [ext_resource type="Texture2D" uid="uid://b06ou2y414usm" path="res://Sprites/enemyThree/character-run-3.png" id="11_run3"]
+[ext_resource type="AudioStream" uid="uid://d2ulhtgnp3ip" path="res://Sounds/SoundEffetcs/deathb.wav" id="12_r2sjt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_three"]
 animations = [{
@@ -99,3 +100,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_hp")
 max_value = 4.0
 value = 4.0
 show_percentage = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=821721357]
+stream = ExtResource("12_r2sjt")
+volume_db = -5.0
+pitch_scale = 1.5

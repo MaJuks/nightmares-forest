@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dy4kenaashig2" path="res://Sprites/enemyOne/Walking_(64 x 32).png" id="2_v1f6n"]
 [ext_resource type="Texture2D" uid="uid://dftn0fe25lhnm" path="res://Sprites/enemyOne/Blink_(Replace last frame on Walking)_(64 x 32).png" id="3_2bqfq"]
 [ext_resource type="Texture2D" uid="uid://4mqw8i28uif1" path="res://Sprites/enemyOne/Hurt_(64 x 32).png" id="4_bcywp"]
+[ext_resource type="AudioStream" uid="uid://d2ulhtgnp3ip" path="res://Sounds/SoundEffetcs/deathb.wav" id="6_2bqfq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qtp01"]
 atlas = ExtResource("2_v1f6n")
@@ -35,6 +36,12 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_2bqfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2bqfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bcywp")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_bcywp")
@@ -88,8 +95,6 @@ position = Vector2(0, -1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_miy63")
 animation = &"dead"
-frame = 1
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=222843763]
 position = Vector2(0, 3)
@@ -114,3 +119,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_v1f6n")
 max_value = 3.0
 value = 3.0
 show_percentage = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=212166775]
+stream = ExtResource("6_2bqfq")
+volume_db = -5.0

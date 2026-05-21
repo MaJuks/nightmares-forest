@@ -10,6 +10,7 @@ enum enemyOneState {
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $Hitbox
 @onready var health_bar: ProgressBar = $ProgressBar
+@onready var death_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 const SPEED = 100.0
 
@@ -54,6 +55,7 @@ func go_to_dead_state() -> void:
 	hitbox.process_mode = Node.PROCESS_MODE_DISABLED
 	set_collision_layer(0)
 	set_collision_mask(0)
+	death_sound.play()
 
 	var player_node = get_tree().get_first_node_in_group("player")
 	if player_node:
