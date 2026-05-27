@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://djke6j7ci85r"]
+
+[ext_resource type="Script" uid="uid://c5damtvys1j48" path="res://Entidades/Scripts Entidades/finalBoss.gd" id="1_j1q7v"]
+[ext_resource type="PackedScene" uid="uid://4gbljr42pab1" path="res://Entidades/item_cura.tscn" id="2_touat"]
+[ext_resource type="Texture2D" uid="uid://c1jgotkmsitak" path="res://Sprites/finalBoss/existindo.png" id="3_0p8vw"]
+[ext_resource type="Texture2D" uid="uid://8c2cags2grmc" path="res://Sprites/finalBoss/walking.png" id="3_a3f5b"]
+[ext_resource type="AudioStream" uid="uid://d2ulhtgnp3ip" path="res://Sounds/SoundEffetcs/deathb.wav" id="6_p7nmu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0p8vw"]
+atlas = ExtResource("3_a3f5b")
+region = Rect2(627, 0, 627, 836)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1q7v"]
+atlas = ExtResource("3_a3f5b")
+region = Rect2(1254, 0, 627, 836)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_miy63"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0p8vw")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0p8vw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1q7v")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 1.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grb8i"]
+radius = 488.0
+height = 1170.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_peoyx"]
+size = Vector2(911.5, 1052)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1f6n"]
+bg_color = Color(0.05490196, 0.70980394, 0, 1)
+
+[node name="finalBoss" type="CharacterBody2D" unique_id=124043026]
+scale = Vector2(0.05, 0.05)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_j1q7v")
+drop_item = ExtResource("2_touat")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1904097842]
+position = Vector2(-3.5, -1)
+scale = Vector2(2.0037215, 2)
+sprite_frames = SubResource("SpriteFrames_miy63")
+animation = &"dead"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=222843763]
+position = Vector2(-89, 68)
+shape = SubResource("CapsuleShape2D_grb8i")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1150569193]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1022101202]
+position = Vector2(-89.25, 43)
+shape = SubResource("RectangleShape2D_peoyx")
+debug_color = Color(0.904304, 0, 0.06884131, 0.41960785)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=224351581]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -44.0
+theme_override_colors/font_color = Color(0.22894648, 0.99788445, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.92941177, 0, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_v1f6n")
+max_value = 3.0
+value = 3.0
+show_percentage = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=212166775]
+position = Vector2(591, 223)
+stream = ExtResource("6_p7nmu")
+volume_db = -5.0

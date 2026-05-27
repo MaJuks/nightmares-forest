@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://be78xwh4txg3b" path="res://Entidades/Scripts Entidades/game_manager.gd" id="17_tgjig"]
 [ext_resource type="Texture2D" uid="uid://ctpid6o551oxt" path="res://Map/Map Assets/ForestPack/Tiny Swords (Free Pack)/Terrain/Resources/Meat/Sheep/Sheep_Grass.png" id="18_1watw"]
 [ext_resource type="PackedScene" uid="uid://xtqldc1hupwy" path="res://HUD/HUD.tscn" id="25_6yweb"]
+[ext_resource type="PackedScene" uid="uid://djke6j7ci85r" path="res://Entidades/finalBoss.tscn" id="27_l4t2t"]
 [ext_resource type="FontFile" uid="uid://dta2k5h4ub12f" path="res://HUD/Fonte/PressStart2P-Regular.ttf" id="28_f3t3g"]
 [ext_resource type="PackedScene" uid="uid://cg8rfudn4t38q" path="res://HUD/pause_menu.tscn" id="29_tlkso"]
 [ext_resource type="AudioStream" uid="uid://cwcrs0bnb8iop" path="res://Sounds/Musics/playing_music.ogg" id="30_2s2l7"]
@@ -766,7 +767,7 @@ position = Vector2(739, -67)
 
 [node name="GameManager" type="Node" parent="." unique_id=924930578 node_paths=PackedStringArray("spawn_points", "enemies_label")]
 script = ExtResource("17_tgjig")
-enemy_scenes = Array[PackedScene]([ExtResource("14_ry46t"), ExtResource("14_two01"), ExtResource("14_three1")])
+enemy_scenes = Array[PackedScene]([ExtResource("14_ry46t"), ExtResource("14_two01"), ExtResource("14_three1"), ExtResource("27_l4t2t")])
 spawn_points = NodePath("../SpawnPoints")
 enemies_label = NodePath("../Hud/Label2")
 
