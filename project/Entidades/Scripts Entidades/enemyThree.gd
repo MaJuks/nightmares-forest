@@ -22,18 +22,33 @@ var health: int = max_health
 var damage: int = 8
 var status: enemyState
 var player: CharacterBody2D
+var can_deal_damage: bool = true
+var player_in_hitbox: bool = false
+
 func _ready() -> void:
 	animated_sprite_2d.animation_finished.connect(_on_animation_finished)
 	player = get_tree().get_first_node_in_group("player")
 	health_bar.max_value = max_health
 	health_bar.value = health
 	hitbox.body_entered.connect(_on_damage_area_body_entered)
+	hitbox.body_exited.connect(_on_damage_area_body_exited)
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 	go_to_walk_state()
+
 func _on_damage_area_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		body.take_damage(damage)
+		player_in_hitbox = true
+
+func _on_damage_area_body_exited(body: Node) -> void:
+	if body.is_in_group("player"):
+		player_in_hitbox = false
+
 func _physics_process(delta: float) -> void:
+	if player_in_hitbox and can_deal_damage and player != null:
+		var direction = (player.global_position - global_position).normalized()
+		player.take_damage(damage, direction)
+		can_deal_damage = false
+		get_tree().create_timer(1.0).timeout.connect(func(): can_deal_damage = true)
 	match status:
 		enemyState.IDLE:
 			idle_state(delta)
@@ -44,15 +59,18 @@ func _physics_process(delta: float) -> void:
 		enemyState.DEAD:
 			dead_state(delta)
 	move_and_slide()
+
 func go_to_walk_state() -> void:
 	status = enemyState.WALKING
 	animated_sprite_2d.play("run")
 	shoot_timer.stop()
+
 func go_to_idle_state() -> void:
 	status = enemyState.SHOOTING
 	animated_sprite_2d.play("idle")
 	if shoot_timer.is_stopped():
 		shoot_timer.start()
+
 func go_to_dead_state() -> void:
 	status = enemyState.DEAD
 	animated_sprite_2d.stop()
@@ -62,10 +80,11 @@ func go_to_dead_state() -> void:
 	velocity = Vector2.ZERO
 	set_collision_layer(0)
 	set_collision_mask(0)
-	
+
 	var player_node = get_tree().get_first_node_in_group("player")
 	if player_node:
 		player_node.stats.experience += xp_reward
+
 	await get_tree().create_timer(0.4).timeout
 	if not is_instance_valid(self):
 		return
@@ -74,16 +93,20 @@ func go_to_dead_state() -> void:
 		get_parent().add_child(item)
 		item.global_position = global_position
 	queue_free()
+
 func _get_distance_to_player() -> float:
 	if player == null:
 		return INF
 	return global_position.distance_to(player.global_position)
+
 func _face_player() -> void:
 	if player == null:
 		return
 	animated_sprite_2d.flip_h = player.global_position.x < global_position.x
+
 func idle_state(_delta: float) -> void:
 	velocity = Vector2.ZERO
+
 func walk_state(_delta: float) -> void:
 	if player == null:
 		return
@@ -98,6 +121,7 @@ func walk_state(_delta: float) -> void:
 		go_to_idle_state()
 		return
 	_face_player()
+
 func shoot_state(_delta: float) -> void:
 	if player == null:
 		return
@@ -106,8 +130,10 @@ func shoot_state(_delta: float) -> void:
 	_face_player()
 	if distance > SHOOT_RANGE or distance < RETREAT_RANGE:
 		go_to_walk_state()
+
 func dead_state(_delta: float) -> void:
 	velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+
 func _on_shoot_timer_timeout() -> void:
 	if status != enemyState.SHOOTING or player == null or projectile_scene == null:
 		return
@@ -115,8 +141,10 @@ func _on_shoot_timer_timeout() -> void:
 	get_parent().add_child(projectile)
 	projectile.global_position = global_position
 	projectile.direction = (player.global_position - global_position).normalized()
+
 func _on_animation_finished() -> void:
 	pass
+
 func take_damage(damage_amount: int = 1) -> void:
 	if status == enemyState.DEAD:
 		return

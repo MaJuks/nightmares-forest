@@ -1,25 +1,23 @@
 extends CharacterBody2D
-
 enum enemyOneState {
 	WALKING,
 	DEAD
 }
-
+signal xp_droped(amount: int)
 @export var drop_item: PackedScene
 @export var xp_reward: int = 50
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $Hitbox
 @onready var health_bar: ProgressBar = $ProgressBar
 @onready var death_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
-
 const SPEED = 100.0
-
-var max_health: int = 12
+var max_health: int = 14
 var health: int = max_health
 var damage: int = 10
 var status: enemyOneState
 var player: CharacterBody2D
-const MIN_DISTANCE = 40.0
+var can_deal_damage: bool = true
+var player_in_hitbox: bool = false
 
 func _ready() -> void:
 	animated_sprite_2d.animation_finished.connect(_on_animation_finished)
@@ -27,22 +25,28 @@ func _ready() -> void:
 	health_bar.max_value = max_health
 	health_bar.value = health
 	hitbox.body_entered.connect(_on_damage_area_body_entered)
+	hitbox.body_exited.connect(_on_damage_area_body_exited)
 	go_to_walk_state()
 
 func _on_damage_area_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		body.take_damage(damage)
+		player_in_hitbox = true
+
+func _on_damage_area_body_exited(body: Node) -> void:
+	if body.is_in_group("player"):
+		player_in_hitbox = false
 
 func _physics_process(delta: float) -> void:
-	for body in hitbox.get_overlapping_bodies():
-		if body.is_in_group("player"):
-			body.take_damage(damage)
+	if player_in_hitbox and can_deal_damage and player != null:
+		var direction = (player.global_position - global_position).normalized()
+		player.take_damage(damage, direction)
+		can_deal_damage = false
+		get_tree().create_timer(1.0).timeout.connect(func(): can_deal_damage = true)
 	match status:
 		enemyOneState.WALKING:
 			walk_state(delta)
 		enemyOneState.DEAD:
 			dead_state(delta)
-
 	move_and_slide()
 
 func go_to_walk_state() -> void:
@@ -56,7 +60,6 @@ func go_to_dead_state() -> void:
 	set_collision_layer(0)
 	set_collision_mask(0)
 	death_sound.play()
-
 	var player_node = get_tree().get_first_node_in_group("player")
 	if player_node:
 		player_node.stats.experience += xp_reward
@@ -64,15 +67,9 @@ func go_to_dead_state() -> void:
 func walk_state(_delta: float) -> void:
 	if player == null:
 		return
-
-	var distance = global_position.distance_to(player.global_position)
-	if distance <= MIN_DISTANCE:
-		velocity = Vector2.ZERO
-		return
-
-	var direction = (player.global_position - global_position).normalized()
-	velocity = direction * SPEED
-	animated_sprite_2d.flip_h = direction.x < 0
+	var direcao = (player.global_position - global_position).normalized()
+	velocity = direcao * SPEED
+	animated_sprite_2d.flip_h = direcao.x < 0
 
 func dead_state(_delta: float) -> void:
 	velocity = velocity.move_toward(Vector2.ZERO, SPEED)
@@ -88,9 +85,7 @@ func _on_animation_finished() -> void:
 func take_damage(damage: int = 1) -> void:
 	if status == enemyOneState.DEAD:
 		return
-
 	health -= damage
 	health_bar.value = health
-
 	if health <= 0:
 		go_to_dead_state()
