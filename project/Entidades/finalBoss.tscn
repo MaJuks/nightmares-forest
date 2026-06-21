@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djke6j7ci85r"]
 
 [ext_resource type="Script" uid="uid://c5damtvys1j48" path="res://Entidades/Scripts Entidades/finalBoss.gd" id="1_j1q7v"]
-[ext_resource type="PackedScene" uid="uid://4gbljr42pab1" path="res://Entidades/item_cura.tscn" id="2_touat"]
+[ext_resource type="PackedScene" uid="uid://4gbljr42pab1" path="res://Entidades/heal.tscn" id="2_touat"]
 [ext_resource type="Texture2D" uid="uid://c1jgotkmsitak" path="res://Sprites/finalBoss/existindo.png" id="3_0p8vw"]
 [ext_resource type="Texture2D" uid="uid://8c2cags2grmc" path="res://Sprites/finalBoss/walking.png" id="3_a3f5b"]
 [ext_resource type="AudioStream" uid="uid://d2ulhtgnp3ip" path="res://Sounds/SoundEffetcs/deathb.wav" id="6_p7nmu"]

@@ -7,7 +7,7 @@ const BULLET_SCENE = preload("res://Entidades/bullet.tscn")
 @onready var muzzle_left = $MuzzleLeft
 @onready var light_right = $MuzzleRight/PointLight2D  # ← novo
 @onready var light_left = $MuzzleLeft/PointLight2D    # ← novo
-
+@onready var shoot_sound = $ShootSound
 
 var shooting := false
 var fire_rate := 0.12
@@ -89,6 +89,13 @@ func flash_muzzle_light() -> void:
 	flash_tween = create_tween()
 	flash_tween.tween_property(light, "energy", 0.0, 0.5)
 	flash_tween.tween_callback(func(): light.visible = false)
+
+func play_shoot_sound() -> void:
+	var sound = shoot_sound.duplicate()
+	add_child(sound)
+	sound.play()
+	sound.finished.connect(sound.queue_free)
+
 		
 func shoot_bullet() -> void:
 	var bullet_instance = BULLET_SCENE.instantiate()
@@ -106,4 +113,5 @@ func shoot_bullet() -> void:
 	
 	get_tree().root.add_child(bullet_instance)
 	flash_muzzle_light()
+	play_shoot_sound()
 	

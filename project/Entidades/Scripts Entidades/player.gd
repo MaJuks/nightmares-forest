@@ -3,6 +3,8 @@ var input: Vector2 = Vector2.ZERO
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var weapon = $gun
 @export var stats: Stats
+@onready var hud = get_tree().get_first_node_in_group("hud")
+@onready var vignette = null
 var invincible: bool = false
 var knockback: Vector2 = Vector2.ZERO
 @onready var damage_sounds: Array = [$DamageSound1, $DamageSound2]
@@ -47,8 +49,13 @@ func _ready():
 	await get_tree().process_frame
 	var hud = get_tree().get_first_node_in_group("hud")
 	if hud:
+		vignette = hud.get_node("BloodVignette")
+		if vignette:
+			vignette.modulate.a = 0.0
 		hud.update_health(stats.health, stats.current_max_health)
 		hud.update_xp(stats.xp_progress())
+	_on_health_change(stats.health, stats.current_max_health)
+		
 
 func _on_level_up(new_level: int) -> void:
 	get_tree().paused = true
@@ -79,7 +86,12 @@ func _on_health_change(cur_health: int, max_health: int):
 	var hud = get_tree().get_first_node_in_group("hud")
 	if hud:
 		hud.update_health(cur_health, max_health)
+		if vignette:
+			var percent = float(cur_health) / float(max_health)
+			var intensity = 1.0 - clamp(percent, 0.0, 1.0)
 
+			vignette.modulate.a = intensity
+		
 func take_damage(amount: int, knockback_direction: Vector2 = Vector2.ZERO) -> void:
 	if invincible:
 		return

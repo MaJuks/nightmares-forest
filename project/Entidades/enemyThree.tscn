@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://4axt4ainn1bh"]
 
-[ext_resource type="Script" uid="uid://bccak23fuafux" path="res://Entidades/Scripts Entidades/enemyThree.gd" id="1_script"]
-[ext_resource type="PackedScene" uid="uid://4gbljr42pab1" path="res://Entidades/item_cura.tscn" id="2_drop"]
+[ext_resource type="Script" uid="uid://dvjj6v871dopb" path="res://Entidades/Scripts Entidades/enemyThree.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://4gbljr42pab1" path="res://Entidades/heal.tscn" id="2_drop"]
 [ext_resource type="PackedScene" uid="uid://cn3x8rytpr400" path="res://Entidades/enemy_projectile.tscn" id="3_proj"]
 [ext_resource type="Texture2D" uid="uid://caxctmekut3rm" path="res://Sprites/enemyThree/character-idle-0.png" id="4_idle0"]
 [ext_resource type="Texture2D" uid="uid://62ui75xp7epe" path="res://Sprites/enemyThree/character-idle-1.png" id="5_idle1"]
