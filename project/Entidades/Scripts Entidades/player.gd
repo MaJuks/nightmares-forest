@@ -88,7 +88,10 @@ func _on_health_change(cur_health: int, max_health: int):
 		hud.update_health(cur_health, max_health)
 		if vignette:
 			var percent = float(cur_health) / float(max_health)
-			var intensity = 1.0 - clamp(percent, 0.0, 1.0)
+			var intensity = 0.0
+
+			if percent < 0.5:
+				intensity = (0.5 - percent) / 0.5
 
 			vignette.modulate.a = intensity
 		
