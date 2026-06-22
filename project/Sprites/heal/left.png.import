@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfxa3eji14isr"
-path="res://.godot/imported/right-down.png-899e1af3e95dae276cda705e693d5b94.ctex"
+uid="uid://drmiyugnufmjh"
+path="res://.godot/imported/left.png-1cdcf3ce7b67d7fff45cbcdf66dce23b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/gun/normal/right-down.png"
-dest_files=["res://.godot/imported/right-down.png-899e1af3e95dae276cda705e693d5b94.ctex"]
+source_file="res://Sprites/heal/left.png"
+dest_files=["res://.godot/imported/left.png-1cdcf3ce7b67d7fff45cbcdf66dce23b.ctex"]
 
 [params]
 

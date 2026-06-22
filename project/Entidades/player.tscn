@@ -32,7 +32,6 @@
 
 [sub_resource type="Resource" id="Resource_usxke"]
 script = ExtResource("2_cdlda")
-metadata/_custom_type_script = "uid://ba1slwrfnngdl"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6q7m"]
 size = Vector2(38, 50)

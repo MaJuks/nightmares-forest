@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bt3fienb5akuq"]
 
-[ext_resource type="Texture2D" uid="uid://bcp0y5onwls1e" path="res://Sprites/gun/normal/right.png" id="1_o2wld"]
-[ext_resource type="Texture2D" uid="uid://cttxhobxvnk14" path="res://Sprites/gun/fired/fired-right.png" id="2_8xwfw"]
+[ext_resource type="Texture2D" uid="uid://bcp0y5onwls1e" path="res://Sprites/gun/gun-1/right.png" id="1_o2wld"]
+[ext_resource type="Texture2D" uid="uid://cttxhobxvnk14" path="res://Sprites/gun/gun-1/fired-right.png" id="2_8xwfw"]
 
 [sub_resource type="Gradient" id="Gradient_ni4la"]
 offsets = PackedFloat32Array(0, 0.2421875, 0.5859375, 0.84375, 1)

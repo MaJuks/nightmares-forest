@@ -10,11 +10,26 @@ const BULLET_SCENE = preload("res://Entidades/bullet.tscn")
 @onready var shoot_sound = $ShootSound
 
 var shooting := false
-var fire_rate := 0.12
+var fire_rate := 0.25
 var facing_left := false
 var flash_tween: Tween  # ← novo
 
 func _ready() -> void:
+	if GameManager.current_phase == 1 :
+		fire_rate = 0.25
+		var frames = sprite.sprite_frames
+		frames.set_frame("idle_right",0,load("res://Sprites/gun/gun-1/right.png"))
+		frames.set_frame("idle_left",0,load("res://Sprites/gun/gun-1/left.png"))
+		frames.set_frame("shoot_right",0,load("res://Sprites/gun/gun-1/fired-right.png"))
+		frames.set_frame("shoot_left",0,load("res://Sprites/gun/gun-1/fired-left.png"))
+	else:
+		fire_rate = 0.12
+		var frames = sprite.sprite_frames
+		frames.set_frame("idle_right",0,load("res://Sprites/gun/gun-2/right.png"))
+		frames.set_frame("idle_left",0,load("res://Sprites/gun/gun-2/left.png"))
+		frames.set_frame("shoot_right",0,load("res://Sprites/gun/gun-2/fired-right.png"))
+		frames.set_frame("shoot_left",0,load("res://Sprites/gun/gun-2/fired-left.png"))
+		
 	sprite.play("idle_right")
 	
 	light_right.visible = false

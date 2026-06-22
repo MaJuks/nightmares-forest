@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cttxhobxvnk14"
-path="res://.godot/imported/fired-right.png-90443666c1d853ab993f1912f7470a15.ctex"
+uid="uid://yi315vrmgaaf"
+path="res://.godot/imported/fired-left.png-c38a3d79b80863736a4be1fa61d4e806.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/gun/fired/fired-right.png"
-dest_files=["res://.godot/imported/fired-right.png-90443666c1d853ab993f1912f7470a15.ctex"]
+source_file="res://Sprites/gun/gun-1/fired-left.png"
+dest_files=["res://.godot/imported/fired-left.png-c38a3d79b80863736a4be1fa61d4e806.ctex"]
 
 [params]
 
