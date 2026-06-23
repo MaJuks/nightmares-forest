@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://br057mvjja3ci"]
+
+[ext_resource type="Script" uid="uid://3v0rstqvwqj6" path="res://Entidades/Scripts Entidades/fireBall.gd" id="1_s128b"]
+[ext_resource type="Texture2D" uid="uid://cmcbg8uppxco6" path="res://Sprites/finalBoss/attack/FB001.png" id="2_s128b"]
+[ext_resource type="Texture2D" uid="uid://4osthktwirrb" path="res://Sprites/finalBoss/attack/FB002.png" id="3_lus1q"]
+[ext_resource type="Texture2D" uid="uid://0qi6rmn4rwfu" path="res://Sprites/finalBoss/attack/FB003.png" id="4_vpc7j"]
+[ext_resource type="Texture2D" uid="uid://biaxbqmdt4o5f" path="res://Sprites/finalBoss/attack/FB004.png" id="5_6so76"]
+[ext_resource type="Texture2D" uid="uid://1kvjfl22etbt" path="res://Sprites/finalBoss/attack/FB005.png" id="6_plee1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fnwl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s128b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lus1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vpc7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6so76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_plee1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pfbrq"]
+radius = 19.0
+height = 38.0
+
+[sub_resource type="Gradient" id="Gradient_43pbm"]
+offsets = PackedFloat32Array(0, 0.2421875, 0.5859375, 0.84375, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.8745098, 0, 1, 1, 0.41960785, 0, 1, 0.18431373, 0.02745098, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wjb3h"]
+gradient = SubResource("Gradient_43pbm")
+width = 150
+height = 150
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="fireBall" type="Area2D" unique_id=876491677 groups=["bullets"]]
+collision_layer = 8
+script = ExtResource("1_s128b")
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=1548944759]
+position = Vector2(-1, 0)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_fnwl3")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1604813511]
+position = Vector2(2, 23)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_pfbrq")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2128437993]
+scale = Vector2(0.6828128, 0.7531002)
+texture = SubResource("GradientTexture2D_wjb3h")
+texture_scale = 0.2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

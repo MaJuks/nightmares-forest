@@ -1,13 +1,20 @@
 extends Node
+
 @export var enemy_scenes: Array[PackedScene] = []
+@export var boss_scene: PackedScene
 @export var spawn_points: Node2D
 @export var enemies_label: Label
+@export var earthquake_sound: AudioStream
+
 const ENEMIES_PER_HORDE: int = 5
 const ENEMIES_TO_DISPLAY: int = 5
 const SPAWN_INTERVAL: float = 1.0
+const BOSS_DELAY: float = 5.0
+
 var enemies_spawned: int = 0
 var enemies_alive: int = 0
 var enemies_killed: int = 0
+var is_boss_phase: bool = false
 
 func _ready() -> void:
 	var music = get_parent().get_node_or_null("AudioStreamPlayer2D")
@@ -15,7 +22,15 @@ func _ready() -> void:
 		music.volume_db = -80.0
 		var tween = create_tween()
 		tween.tween_property(music, "volume_db", 0.0, 1.5)
-	start_horde()
+
+	is_boss_phase = GameManager.current_phase == 2
+
+	if is_boss_phase:
+		start_boss_phase()
+	else:
+		start_horde()
+
+# --- Fase normal ---
 
 func start_horde() -> void:
 	enemies_spawned = 0
@@ -44,19 +59,81 @@ func spawn_next_enemy() -> void:
 		await get_tree().create_timer(SPAWN_INTERVAL, false).timeout
 		spawn_next_enemy()
 
+# --- Fase do boss ---
+
+func start_boss_phase() -> void:
+	enemies_spawned = 0
+	enemies_alive = 0
+	enemies_killed = 0
+
+	# Pausa a música principal
+	var music = get_parent().get_node_or_null("AudioStreamPlayer2D")
+	if music:
+		var tween = create_tween()
+		tween.tween_property(music, "volume_db", -80.0, 1.0)
+		await tween.finished
+		music.stop()
+
+	# Toca o som de terremoto
+	var eq_player = AudioStreamPlayer.new()
+	add_child(eq_player)
+	if earthquake_sound:
+		eq_player.stream = earthquake_sound
+		eq_player.play()
+
+	# Shake na câmera do player
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.camera_shake(BOSS_DELAY, 3.0)
+
+	await get_tree().create_timer(BOSS_DELAY, false).timeout
+	if not is_inside_tree():
+		return
+
+	# Para o terremoto e volta a música principal
+	eq_player.stop()
+	eq_player.queue_free()
+	if music:
+		music.volume_db = -80.0
+		music.play()
+		var tween2 = create_tween()
+		tween2.tween_property(music, "volume_db", 0.0, 1.5)
+
+	spawn_boss()
+
+func spawn_boss() -> void:
+	if boss_scene == null:
+		return
+	var points = spawn_points.get_children()
+	if points.is_empty():
+		return
+	var random_point = points[randi() % points.size()]
+	var boss = boss_scene.instantiate()
+	boss.tree_exited.connect(_on_enemy_died)
+	get_parent().add_child.call_deferred(boss)
+	boss.global_position = random_point.global_position
+	enemies_spawned += 1
+	enemies_alive += 1
+
+# --- Sinais ---
+
 func _on_enemy_died() -> void:
 	if not is_inside_tree():
 		return
 	enemies_alive -= 1
 	enemies_killed += 1
 	update_label()
-	if enemies_killed >= ENEMIES_TO_DISPLAY and enemies_spawned >= ENEMIES_PER_HORDE:
-		horde_complete()
+	if is_boss_phase:
+		if enemies_killed >= 1:
+			horde_complete()
+	else:
+		if enemies_killed >= ENEMIES_TO_DISPLAY and enemies_spawned >= ENEMIES_PER_HORDE:
+			horde_complete()
 
 func update_label() -> void:
 	if not is_inside_tree():
 		return
-	if enemies_label:
+	if enemies_label and not is_boss_phase:
 		var restantes = max(0, ENEMIES_TO_DISPLAY - enemies_killed)
 		enemies_label.text = "Inimigos Restantes: " + str(restantes)
 
