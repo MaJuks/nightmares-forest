@@ -6,8 +6,8 @@ extends Node
 @export var enemies_label: Label
 @export var earthquake_sound: AudioStream
 
-const ENEMIES_PER_HORDE: int = 5
-const ENEMIES_TO_DISPLAY: int = 5
+const ENEMIES_PER_HORDE: int = 50
+const ENEMIES_TO_DISPLAY: int = 50
 const SPAWN_INTERVAL: float = 1.0
 const BOSS_DELAY: float = 5.0
 
