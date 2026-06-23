@@ -719,7 +719,6 @@ font = ExtResource("29_urv5g")
 [node name="Map" type="Node2D" unique_id=1191358320]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=97049478]
-visible = false
 color = Color(0.27937305, 0.2992859, 0.47400928, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1024505890]
